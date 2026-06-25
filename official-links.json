@@ -1,0 +1,1326 @@
+{
+  "generatedAt": "2026-06-24T09:40:46.996Z",
+  "source": "https://www.huidu.cn/CnDownload/index_100000010716522.html",
+  "products": {
+    "HD-K12": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index137.html",
+      "docs": [
+        {
+          "label": "HD-K12规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Receiver/HD-K12%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-K08": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index137.html",
+      "docs": [
+        {
+          "label": "HD-K08规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Receiver/HD-K08%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-R716": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index74.html",
+      "docs": [
+        {
+          "label": "HD-R716规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Receiver/HD-R716%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-R712": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index74.html",
+      "docs": [
+        {
+          "label": "HD-R712规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Receiver/HD-R712%E8%A7%84%E6%A0%BC%E4%B9%A6%20V3.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-R708": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index74.html",
+      "docs": [
+        {
+          "label": "HD-R708规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Receiver/HD-R708%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-R3210": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index74.html",
+      "docs": [
+        {
+          "label": "HD-R3210规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Receiver/HD-R3210%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-R500S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index98.html",
+      "docs": [
+        {
+          "label": "HD-R500S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Receiver/HD-R500S%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-R5S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index98.html",
+      "docs": [
+        {
+          "label": "HD-R5S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Receiver/HD-R5S%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-T16": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index120.html",
+      "docs": [
+        {
+          "label": "HD-T16规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Sync/HD-T16%E8%A7%84%E6%A0%BC%E4%B9%A6v1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-T08": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index120.html",
+      "docs": [
+        {
+          "label": "HD-T08规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Sync/HD-T08%E8%A7%84%E6%A0%BC%E4%B9%A6v1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-T08F": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index136.html",
+      "docs": [
+        {
+          "label": "HD-T08F规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Sync/HD-T08F%E8%A7%84%E6%A0%BC%E4%B9%A6v1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-T901": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index60.html",
+      "docs": [
+        {
+          "label": "HD-T901规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Sync/HD-T901%E8%A7%84%E6%A0%BC%E4%B9%A6V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-A8": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index53.html",
+      "docs": [
+        {
+          "label": "HD-A8规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/AS/HD-A8%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.4.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-A7": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index53.html",
+      "docs": [
+        {
+          "label": "HD-A7规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/AS/HD-A7%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.4.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-H8": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index143.html",
+      "docs": [
+        {
+          "label": "HD-H8规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/HS/HD-H8%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-H6": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index143.html",
+      "docs": [
+        {
+          "label": "HD-H6规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/HS/HD-H6%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-A6L": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index65.html",
+      "docs": [
+        {
+          "label": "HD-A6L规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/AS/HD-A6L%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.4.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-A5L": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index65.html",
+      "docs": [
+        {
+          "label": "HD-A5L规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/AS/HD-A5L%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-A4L": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index65.html",
+      "docs": [
+        {
+          "label": "HD-A4L规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/AS/HD-A4L%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-H4K": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index132.html",
+      "docs": [
+        {
+          "label": "HD-H4K规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/HS/HD-H4K%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-H4K用户手册V1.1",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Instruction/Sync-controller/HD-H4K%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8CV1.1.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-A3L": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index56.html",
+      "docs": [
+        {
+          "label": "HD-A3L规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/AS/HD-A3L%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-C16H": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index57.html",
+      "docs": [
+        {
+          "label": "HD-C16H规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Async/HD-C16H%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-C16L": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index57.html",
+      "docs": [
+        {
+          "label": "HD-C16L规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Async/HD-C16L%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-C08L": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index57.html",
+      "docs": [
+        {
+          "label": "HD-C08L规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Async/HD-C08L%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-D16": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index58.html",
+      "docs": [
+        {
+          "label": "HD-D16规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Async/HD-D16%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-D18": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index58.html",
+      "docs": [
+        {
+          "label": "HD-D18规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Async/HD-D18%E8%A7%84%E6%A0%BC%E4%B9%A6%20V0.2.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-B8L": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index59.html",
+      "docs": [
+        {
+          "label": "HD-B8L规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Async/HD-B8L%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-B6L": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index59.html",
+      "docs": [
+        {
+          "label": "HD-B6L规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Async/HD-B6L%E8%A7%84%E6%A0%BC%E4%B9%A6V1.3.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-B6L用户手册",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Instruction/Sync-controller/HD-B6L%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP4060": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index141.html",
+      "docs": [
+        {
+          "label": "HD-VP4060规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP4060%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP4060使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP4060%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.1.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP3060": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index141.html",
+      "docs": [
+        {
+          "label": "HD-VP3060规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP3060%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP3060使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP3060%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.1.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP2060": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index141.html",
+      "docs": [
+        {
+          "label": "HD-VP2060规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP2060%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP2060使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP2060%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.4.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP2430": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index153.html",
+      "docs": [
+        {
+          "label": "HD-VP2430规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP2430%E8%A7%84%E6%A0%BC%E4%B9%A6V1.0.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP2430使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP2430%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP1640A": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index84.html",
+      "docs": [
+        {
+          "label": "HD-VP1640A规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP1640A%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.2.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP1640A使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP1640A%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V0.6.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP1240A": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index84.html",
+      "docs": [
+        {
+          "label": "HD-VP1240A规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP1240A%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.2.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP1240A使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP1240A%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V0.6.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP1620S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index84.html",
+      "docs": [
+        {
+          "label": "HD-VP1620S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP1620S%E8%A7%84%E6%A0%BC%E4%B9%A6V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-VP1220S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index84.html",
+      "docs": [
+        {
+          "label": "HD-VP1220S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP1220S%E8%A7%84%E6%A0%BC%E4%B9%A6V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-VP12": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index160.html",
+      "docs": [
+        {
+          "label": "HD-VP12规格书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP12%E8%A7%84%E6%A0%BC%E4%B9%A6V1.0.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP12使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP12%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP10": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index160.html",
+      "docs": [
+        {
+          "label": "HD-VP10规格书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP10%E8%A7%84%E6%A0%BC%E4%B9%A6V1.0.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP10使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP10%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP830": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index64.html",
+      "docs": [
+        {
+          "label": "HD-VP830-TP规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP830-TP%E8%A7%84%E6%A0%BC%E4%B9%A6%20v2.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP830规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP830%E8%A7%84%E6%A0%BC%E4%B9%A6%20v2.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP830使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP630%20&%20VP830%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP630": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index64.html",
+      "docs": [
+        {
+          "label": "HD-VP630-TP规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP630-TP%E8%A7%84%E6%A0%BC%E4%B9%A6%20v2.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP630规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP630%E8%A7%84%E6%A0%BC%E4%B9%A6%20v2.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-VP820A": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index64.html",
+      "docs": [
+        {
+          "label": "HD-VP820A规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP820A%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.2.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-VP620A": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index64.html",
+      "docs": [
+        {
+          "label": "HD-VP620A规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP620A%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.2.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP620A使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP820A%20&%20VP620A%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6_V1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP410H": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index92.html",
+      "docs": [
+        {
+          "label": "HD-VP410H规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP410H%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.2.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP410H使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP410H%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.1.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP210H": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index92.html",
+      "docs": [
+        {
+          "label": "HD-VP210H规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP210H%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.2.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP210H使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP210H%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.1.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP410S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index92.html",
+      "docs": [
+        {
+          "label": "HD-VP410S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP410S%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP410S使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP410S%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP210S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index92.html",
+      "docs": [
+        {
+          "label": "HD-VP210S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-VP210S%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP210S使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-VP210S%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-KV410": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index130.html",
+      "docs": [
+        {
+          "label": "HD-KV410规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-KV410%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-KV410使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-KV410%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-KV210": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index130.html",
+      "docs": [
+        {
+          "label": "HD-KV210规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/VideoProcessor/HD-KV210%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-KV210使用说明书",
+          "url": "https://huidu-software.oss-cn-shenzhen.aliyuncs.com/huidu.cn/WebFiles/Instruction/VP/zh/HD-KV210%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6V1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VP8000M": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index68.html",
+      "docs": [
+        {
+          "label": "HD-VP8000M规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Processor/HD-VP8000M%E8%A7%84%E6%A0%BC%E4%B9%A6V2.2.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VP8000M用户手册",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Instruction/VP/HD-VP8000M%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8CV2.3.1.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-MS4000PRO": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index67.html",
+      "docs": [
+        {
+          "label": "HD-MS4000 Pro规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Server/HD-MS4000%20Pro%E8%A7%84%E6%A0%BC%E4%B9%A6_V1.3.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-MS4000": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index67.html",
+      "docs": [
+        {
+          "label": "HD-MS4000规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Server/HD-MS4000%E8%A7%84%E6%A0%BC%E4%B9%A6_V1.4.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-MS2000": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index67.html",
+      "docs": [
+        {
+          "label": "HD-MS2000规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Server/HD-MS2000%E8%A7%84%E6%A0%BC%E4%B9%A6_V1.4.7.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-MS1000": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index67.html",
+      "docs": [
+        {
+          "label": "HD-MS1000-2U/4U规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Server/HD-MS1000%E8%A7%84%E6%A0%BC%E4%B9%A6_V1.4.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-DCS4000PRO": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index91.html",
+      "docs": [
+        {
+          "label": "HD-DCS4000 Pro规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-DCS4000%20Pro%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-DCS4000": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index91.html",
+      "docs": [
+        {
+          "label": "HD-DCS4000规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-DCS4000%E8%A7%84%E6%A0%BC%E4%B9%A6v1.1.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-DCS4000说明书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-DCS4000%E8%AF%B4%E6%98%8E%E4%B9%A6v1.1.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-CT800": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index90.html",
+      "docs": [
+        {
+          "label": "HD-CT800规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-CT800%E8%A7%84%E6%A0%BC%E4%B9%A6v1.3.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-CT800说明书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-CT800%E8%AF%B4%E6%98%8E%E4%B9%A6v1.3.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VM8000": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index88.html",
+      "docs": [
+        {
+          "label": "HD-VM8000系列混合矩阵规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-VM8000%E7%B3%BB%E5%88%97%E6%B7%B7%E5%90%88%E7%9F%A9%E9%98%B5%E8%A7%84%E6%A0%BC%E4%B9%A6v1.2.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-VM8000系列混合矩阵说明书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-VM8000%E7%B3%BB%E5%88%97%E6%B7%B7%E5%90%88%E7%9F%A9%E9%98%B5%E8%AF%B4%E6%98%8E%E4%B9%A6v1.2.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VM0404": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index89.html",
+      "docs": []
+    },
+    "HD-VM0808": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index89.html",
+      "docs": []
+    },
+    "HD-VM1616": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index89.html",
+      "docs": []
+    },
+    "HD-VM1616C": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index134.html",
+      "docs": []
+    },
+    "HD-VM0808C": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index134.html",
+      "docs": []
+    },
+    "HD-VM0404C": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index134.html",
+      "docs": []
+    },
+    "HD-W3A": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index77.html",
+      "docs": [
+        {
+          "label": "HD-W3A规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-W3A%E8%A7%84%E6%A0%BC%E4%B9%A6V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-W4A": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index77.html",
+      "docs": [
+        {
+          "label": "HD-W4A规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-W4A%E8%A7%84%E6%A0%BC%E4%B9%A6V8.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-W60": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index78.html",
+      "docs": [
+        {
+          "label": "HD-W60规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-W60%E8%A7%84%E6%A0%BC%E4%B9%A6V7.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-W62": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index78.html",
+      "docs": [
+        {
+          "label": "HD-W62规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-W62%E8%A7%84%E6%A0%BC%E4%B9%A6V7.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-W63": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index78.html",
+      "docs": [
+        {
+          "label": "HD-W63规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-W63%E8%A7%84%E6%A0%BC%E4%B9%A6V7.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-W64A": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index78.html",
+      "docs": [
+        {
+          "label": "HD-W64A规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-W64A%E8%A7%84%E6%A0%BC%E4%B9%A6V7.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-W66": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index102.html",
+      "docs": [
+        {
+          "label": "HD-W66规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-W66%E8%A7%84%E6%A0%BC%E4%B9%A6V7.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-WF1": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index79.html",
+      "docs": [
+        {
+          "label": "HD-WF1规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-WF1%E8%A7%84%E6%A0%BC%E4%B9%A6V7.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-WF2": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index79.html",
+      "docs": [
+        {
+          "label": "HD-WF2规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-WF2%E8%A7%84%E6%A0%BC%E4%B9%A6V7.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-WF4": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index79.html",
+      "docs": [
+        {
+          "label": "HD-WF4规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-WF4%E8%A7%84%E6%A0%BC%E4%B9%A6V7.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-E64": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index81.html",
+      "docs": [
+        {
+          "label": "HD-E64规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-E64%E8%A7%84%E6%A0%BC%E4%B9%A6V2.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-E63": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index81.html",
+      "docs": [
+        {
+          "label": "HD-E63规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-E63%E8%A7%84%E6%A0%BC%E4%B9%A6V6.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-E62": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index81.html",
+      "docs": [
+        {
+          "label": "HD-E62规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-E62%E8%A7%84%E6%A0%BC%E4%B9%A6V6.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-U6A": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index80.html",
+      "docs": [
+        {
+          "label": "HD-U6A规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-U6A%E8%A7%84%E6%A0%BC%E4%B9%A6V7.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-U60": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index80.html",
+      "docs": [
+        {
+          "label": "HD-U60规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-U60%E8%A7%84%E6%A0%BC%E4%B9%A6V2.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-U62": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index80.html",
+      "docs": [
+        {
+          "label": "HD-U62规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-U62%E8%A7%84%E6%A0%BC%E4%B9%A6V2.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3588V": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index146.html",
+      "docs": [
+        {
+          "label": "HD-3588V-BOX规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/Box/HD-3588V-BOX%20%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-3588V规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3588V%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3576V": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index152.html",
+      "docs": [
+        {
+          "label": "HD-3576V-BOX规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/Box/HD-3576V-BOX%20%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-3576V规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3576V%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3399F": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index105.html",
+      "docs": [
+        {
+          "label": "HD-3399F-BOX规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/Box/HD-3399F-BOX%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.2.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-3399F规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3399F%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-733V": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index159.html",
+      "docs": [
+        {
+          "label": "HD-733V规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-733V%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-982V": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index147.html",
+      "docs": [
+        {
+          "label": "HD-982V规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-982V%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3568V": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index69.html",
+      "docs": [
+        {
+          "label": "HD-3568V规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3568V%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.3.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3568VC": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index162.html",
+      "docs": [
+        {
+          "label": "HD-3568VC规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3568VC%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3566MV": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index138.html",
+      "docs": [
+        {
+          "label": "HD-3566MV规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3566MV%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3568S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index104.html",
+      "docs": [
+        {
+          "label": "HD-3568S-BOX规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/Box/HD-3568S-BOX%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.3.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-3568S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3568S%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.2.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3568SC": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index145.html",
+      "docs": [
+        {
+          "label": "HD-3568SC规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3568SC%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3566S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index103.html",
+      "docs": [
+        {
+          "label": "HD-3566S-BOX规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/Box/HD-3566S-BOX%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.2.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-3566S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3566S%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3566P": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index151.html",
+      "docs": [
+        {
+          "label": "HD-3566P规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3566P%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.3.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-3288S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index72.html",
+      "docs": [
+        {
+          "label": "HD-3288S-BOX规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/Box/HD-3288S-BOX%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.2.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-3288S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-3288S%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-972S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index71.html",
+      "docs": [
+        {
+          "label": "HD-972S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-972S%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.3.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-527S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index139.html",
+      "docs": [
+        {
+          "label": "HD-527S-BOX规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/Box/HD-527S-BOX%20%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-527S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-527S%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-133MC": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index148.html",
+      "docs": [
+        {
+          "label": "HD-133MC规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-133MC%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.2.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-133M": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index87.html",
+      "docs": [
+        {
+          "label": "HD-133M规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-133M%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.3.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-133TE": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index149.html",
+      "docs": [
+        {
+          "label": "HD-133TE规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-133TE%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-133T": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index86.html",
+      "docs": [
+        {
+          "label": "HD-133T规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-133T%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-723D": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index161.html",
+      "docs": [
+        {
+          "label": "HD-723D规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-723D%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-352C": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index128.html",
+      "docs": [
+        {
+          "label": "HD-352C规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-352C%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-40S": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index73.html",
+      "docs": [
+        {
+          "label": "HD-40S-BOX规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/Box/HD-40S-BOX%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.3.pdf",
+          "type": "specification"
+        },
+        {
+          "label": "HD-40S规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-40S%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.2.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-S1C": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index158.html",
+      "docs": [
+        {
+          "label": "HD-S1C规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/LCD/HD-S1C%E8%A7%84%E6%A0%BC%E4%B9%A6V1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-FT08": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index123.html",
+      "docs": [
+        {
+          "label": "HD-FT08 光纤收发器规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Accessories/HD-FT08%E8%A7%84%E6%A0%BC%E4%B9%A6%20v2.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-FT01": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index123.html",
+      "docs": [
+        {
+          "label": "HD-FT01 光纤收发器规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Accessories/HD-FT01%E8%A7%84%E6%A0%BC%E4%B9%A6%20v1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-HT01": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index122.html",
+      "docs": [
+        {
+          "label": "HD-HT01 HDBaseT信号延长器产品手册",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Instruction/Accessories/HD-HT01%E4%BA%A7%E5%93%81%E6%89%8B%E5%86%8Cv1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-HT02": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index122.html",
+      "docs": [
+        {
+          "label": "HD-HT02 HDBaseT信号延长器产品手册",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Instruction/Accessories/HD-HT02%E4%BA%A7%E5%93%81%E6%89%8B%E5%86%8Cv1.0.pdf",
+          "type": "manual"
+        }
+      ]
+    },
+    "HD-VS0102": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index124.html",
+      "docs": [
+        {
+          "label": "HD-VS0102分配器规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-VS0102%E4%BA%A7%E5%93%81%E6%89%8B%E5%86%8Cv1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-VS0104": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index124.html",
+      "docs": [
+        {
+          "label": "HD-VS0104分配器规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-VS0104%E4%BA%A7%E5%93%81%E6%89%8B%E5%86%8Cv1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-VS0108": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index124.html",
+      "docs": [
+        {
+          "label": "HD-VS0108分配器规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-VS0108%E4%BA%A7%E5%93%81%E6%89%8B%E5%86%8Cv1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-VS0116": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index124.html",
+      "docs": [
+        {
+          "label": "HD-VS0116分配器规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/DCS-CT-VM-O/HD-VS0116%E4%BA%A7%E5%93%81%E6%89%8B%E5%86%8Cv1.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-PS08": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index121.html",
+      "docs": []
+    },
+    "HD-SN1": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index154.html",
+      "docs": [
+        {
+          "label": "HD-SN1规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Accessories/HD-SN1%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-S90": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index76.html",
+      "docs": [
+        {
+          "label": "HD-S90 九要素传感器规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Accessories/HD-S90%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.4.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-S70": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index76.html",
+      "docs": [
+        {
+          "label": "HD-S70 七要素传感器规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Accessories/HD-S70%E8%A7%84%E6%A0%BC%E4%B9%A6%20V4.3.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-S40": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index76.html",
+      "docs": [
+        {
+          "label": "HD-S40 四要素传感器规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Accessories/HD-S40%E8%A7%84%E6%A0%BC%E4%B9%A6V4.4.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-S108": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index94.html",
+      "docs": [
+        {
+          "label": "HD-S108 全彩多功能盒子规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Accessories/HD-S108%E8%A7%84%E6%A0%BC%E4%B9%A6V2.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-S107": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index95.html",
+      "docs": []
+    },
+    "HD-Y1": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index83.html",
+      "docs": []
+    },
+    "HD-K524": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index82.html",
+      "docs": []
+    },
+    "HD-R5SPLUS": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index98.html",
+      "docs": [
+        {
+          "label": "HD-R5sPlus规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Receiver/HD-R5s%20Plus%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-RB6": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index98.html",
+      "docs": [
+        {
+          "label": "HD-RB6规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Receiver/HD-RB6%E8%A7%84%E6%A0%BC%E4%B9%A6%20V0.1.pdf",
+          "type": "specification"
+        }
+      ]
+    },
+    "HD-W2": {
+      "pageUrl": "https://www.huidu.cn/CnProduct/index77.html",
+      "docs": [
+        {
+          "label": "HD-W2规格书",
+          "url": "https://cdn1.huidu.cn/huidu.cn/WebFiles/Specification/Single-color/HD-W2%E8%A7%84%E6%A0%BC%E4%B9%A6V7.1.pdf",
+          "type": "specification"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>灰度客户速查</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span>H</span>
+        <strong>灰度客户速查</strong>
+      </a>
+      <div class="top-status">
+        <span id="indexStatus">读取速查表</span>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="ask-panel">
+        <p class="eyebrow">Public Quick Answer</p>
+        <h1>客户问什么，就先给答案</h1>
+        <div class="search-row" role="search">
+          <input id="searchInput" autocomplete="off" autofocus placeholder="输入 A3、A3带载、VP2430带载、HDPlayer安装..." />
+          <button id="clearButton" type="button" aria-label="清空">清空</button>
+        </div>
+        <div class="links-panel source-legend" aria-label="资料入口">
+          <a href="https://www.huidu.cn/" target="_blank" rel="noreferrer">官网</a>
+          <button type="button" data-library="specs">规格书</button>
+          <button type="button" data-library="manuals">软件使用说明</button>
+          <button type="button" data-library="guides">指导文档</button>
+          <button type="button" data-library="videos">指导视频</button>
+        </div>
+      </section>
+
+      <section class="answer-panel" id="answerPanel" aria-live="polite"></section>
+
+      <section class="sources-panel">
+        <div class="section-title">
+          <h2>相近资料</h2>
+          <span id="matchSummary">等待查询</span>
+        </div>
+        <div id="sourceList" class="source-list"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
