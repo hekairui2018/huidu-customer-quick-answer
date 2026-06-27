@@ -66,12 +66,21 @@ let videoResources = [];
 const $ = (selector) => document.querySelector(selector);
 
 function escapeHtml(value) {
-  return String(value ?? "")
+  return cleanDisplayText(value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function cleanDisplayText(value) {
+  return String(value ?? "")
+    .replace(/\bHD[-\s]?([A-Z]+)\s*(\d)\s+(\d[A-Z0-9]*)\b/gi, (_match, letters, first, rest) => `HD-${letters.toUpperCase()}${first}${rest.toUpperCase()}`)
+    .replace(/\b([A-Z]+)\s*(\d)\s+(\d[A-Z0-9]*)\b/g, (_match, letters, first, rest) => `${letters.toUpperCase()}${first}${rest.toUpperCase()}`)
+    .replace(/(\d)\s+(\d)(\s*(?:万|像素|路|个|口|way|channel|Gigabit|Ethernet|K|Hz|hz|MB|GB|mm|%))/g, "$1$2$3")
+    .replace(/(\d)\s+(\d)\s*-\s*(channel|way|port|Gigabit)/gi, "$1$2-$3")
+    .replace(/(HD)[\s_-]+([A-Z]+\d+[A-Z0-9]*)/gi, (_match, hd, code) => `${hd.toUpperCase()}-${code.toUpperCase()}`);
 }
 
 function normalize(value) {
@@ -184,7 +193,7 @@ function productScore(item, rawQuery) {
     if (seriesPrefix && alias.startsWith(query) && alias.length > 1) noteAlias(430);
     if (numericFragment) noteAlias(numericModelScore(alias, query));
     noteAlias(numericSuffixModelScore(alias, query));
-    if (numberQuery && !numericFragment) noteAlias(Math.max(0, numericModelScore(alias, numberQuery) - 30));
+    if (numberQuery && !numericFragment && !modelTokens.length) noteAlias(Math.max(0, numericModelScore(alias, numberQuery) - 30));
     if (wantsProModel && numberQuery && alias.includes("pro")) noteAlias(numericModelScore(alias, numberQuery) + 180);
     if (alias.includes(query) && query.length >= 2) noteAlias(520 - Math.max(0, alias.length - query.length) * 20);
     for (const token of tokens) {
@@ -1305,7 +1314,11 @@ function renderNoResult(query) {
 function renderProductAnswer(query, matches) {
   const intent = intentOf(query);
   const primary = matches[0].item;
-  const usefulMatches = matches.filter((entry, index) => index === 0 || entry.score >= 400).slice(0, 5);
+  const exactModelQuery = modelTokensOf(query).length > 0;
+  const usefulMatches = (exactModelQuery
+    ? matches.filter((entry) => exactProductMatch(entry.item, query))
+    : matches.filter((entry, index) => index === 0 || entry.score >= 400)
+  ).slice(0, 5);
   const rows = quickRows(primary, intent, query);
   const title = intent === "overview"
     ? `${productName(primary)} 速查`
