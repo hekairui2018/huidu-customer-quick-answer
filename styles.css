@@ -71,10 +71,17 @@ input {
   font-weight: 800;
   text-decoration: none;
   letter-spacing: 0;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 6px;
 }
 
 .top-tool-link:hover {
   color: #d7ecff;
+  border-color: rgba(215, 236, 255, 0.86);
 }
 
 .page {
