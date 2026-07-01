@@ -12,52 +12,6 @@
       color: #111827;
       font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
     }
-    .tool-topbar {
-      min-height: 64px;
-      padding: 12px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      color: #fff;
-      background: #0f1b24;
-    }
-    .tool-brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: #fff;
-      text-decoration: none;
-    }
-    .tool-brand span {
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      background: #183d52;
-      font-weight: 800;
-    }
-    .tool-brand strong,
-    .back-link {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
-    .back-link {
-      min-height: 36px;
-      padding: 0 14px;
-      display: inline-flex;
-      align-items: center;
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.58);
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .back-link:hover {
-      color: #d7ecff;
-      border-color: rgba(215, 236, 255, 0.86);
-    }
     .app { max-width: 1280px; margin: 0 auto; padding: 22px; }
     h1 { margin: 0 0 16px; font-size: 28px; }
     .panel {
@@ -123,16 +77,9 @@
     canvas { display: block; background: #f3f5f7; }
     .hint { margin-top: 10px; color: #64748b; font-size: 13px; line-height: 1.55; }
     @media (max-width: 1000px) { .form { grid-template-columns: repeat(2, minmax(120px, 1fr)); } }
-</style>
+  </style>
 </head>
 <body>
-  <header class="tool-topbar">
-    <a class="tool-brand" href="index.html">
-      <span>H</span>
-      <strong>配单工具</strong>
-    </a>
-    <a class="back-link" href="index.html">返回产品速查</a>
-  </header>
   <main class="app">
     <h1>LED配单图工具</h1>
 
@@ -387,45 +334,96 @@
       const screenHM = Number($("screenHM").value);
 
       if (controlType !== "VP") {
-        return { unsupported: true, answer: "当前版本先完整支持：模组/箱体 + 同步 VP。异步入口已保留，后面继续补规则。" };
+        return { unsupported: true, answer: "\u5f53\u524d\u7248\u672c\u5148\u5b8c\u6574\u652f\u6301\uff1a\u6a21\u7ec4/\u7bb1\u4f53 + \u540c\u6b65 VP\u3002\u5f02\u6b65\u5165\u53e3\u5df2\u4fdd\u7559\uff0c\u540e\u9762\u7ee7\u7eed\u8865\u89c4\u5219\u3002" };
       }
-      const preset = modulePresets[moduleName] || { label: "自定义模组", w: moduleW, h: moduleH, iface: moduleInterface, card: "R716", cardW: 1, cardH: 16 };
+      const preset = modulePresets[moduleName] || { label: "\u81ea\u5b9a\u4e49\u6a21\u7ec4", w: moduleW, h: moduleH, iface: moduleInterface, card: "R716", cardW: 1, cardH: 16 };
       const cols = Math.ceil(modColsReal);
       const rows = Math.ceil(modRowsReal);
       const totalPx = screenW * screenH;
       let cardName = moduleInterface === "HUB320" ? "R732" : preset.card;
       let cardW = preset.cardW;
       let cardH = preset.cardH;
-      let cardMode = `${cardW}宽×${cardH}高`;
+      let cardMode = `${cardW}\u5bbd\u00d7${cardH}\u9ad8`;
 
-      function estimatePorts(testCardW, testCardH) {
+      function groupColumnsForHeight(testColWidths, rowModH) {
+        const groups = [];
+        let start = 0;
+        while (start < testColWidths.length) {
+          let count = 0;
+          let modW = 0;
+          while (start + count < testColWidths.length) {
+            const nextModW = modW + testColWidths[start + count];
+            const nextPoints = nextModW * moduleW * rowModH * moduleH;
+            if (count > 0 && nextPoints > LIMIT) break;
+            modW = nextModW;
+            count++;
+            if (nextPoints >= LIMIT) break;
+          }
+          groups.push({ start, count, modW });
+          start += count;
+        }
+        return groups;
+      }
+
+      function buildPorts(testCardW, testCardH) {
         const testRowGroups = Math.ceil(rows / testCardH);
         const testColGroups = Math.ceil(cols / testCardW);
         const testRowHeights = splitEven(rows, testRowGroups, testCardH);
-        let portCount = 0;
-        let maxPortPoints = 0;
-        for (const rowModH of testRowHeights) {
-          const rowPxH = rowModH * moduleH;
-          const maxPortCardCols = Math.max(1, Math.floor(LIMIT / (testCardW * moduleW * rowPxH)));
-          const groups = splitGroups(testColGroups, maxPortCardCols);
-          portCount += groups.length;
-          for (const count of groups) {
-            const points = count * testCardW * moduleW * rowPxH;
-            maxPortPoints = Math.max(maxPortPoints, points);
+        const testColWidths = splitEven(cols, testColGroups, testCardW);
+        const dp = Array(testRowGroups + 1).fill(null);
+        dp[testRowGroups] = { count: 0, nextRow: testRowGroups, rowCount: 0 };
+        for (let r = testRowGroups - 1; r >= 0; r--) {
+          let best = null;
+          let rowModH = 0;
+          for (let endRow = r; endRow < testRowGroups; endRow++) {
+            rowModH += testRowHeights[endRow];
+            const groups = groupColumnsForHeight(testColWidths, rowModH);
+            const maxPoints = Math.max(...groups.map(g => g.modW * moduleW * rowModH * moduleH));
+            if (maxPoints > LIMIT) break;
+            const next = dp[endRow + 1];
+            if (!next) continue;
+            const rowCount = endRow - r + 1;
+            const total = groups.length + next.count;
+            if (!best ||
+              total < best.count ||
+              (total === best.count && rowCount < best.rowCount) ||
+              (total === best.count && rowCount === best.rowCount && maxPoints < best.maxPoints)) {
+              best = { count: total, rowCount, nextRow: endRow + 1, groups, maxPoints };
+            }
           }
+          dp[r] = best;
         }
-        return { rowGroups: testRowGroups, colGroups: testColGroups, cardCount: testRowGroups * testColGroups, portCount, maxPortPoints };
+        const ports = [];
+        let maxPortPoints = 0;
+        let r = 0;
+        while (r < testRowGroups && dp[r]) {
+          const part = dp[r];
+          const rowModH = testRowHeights.slice(r, r + part.rowCount).reduce((a, b) => a + b, 0);
+          for (const g of part.groups) {
+            const pxW = g.modW * moduleW;
+            const pxH = rowModH * moduleH;
+            const points = pxW * pxH;
+            maxPortPoints = Math.max(maxPortPoints, points);
+            ports.push({ row: r, rowCount: part.rowCount, start: g.start, count: g.count, modW: g.modW, modH: rowModH, pxW, pxH, points });
+          }
+          r = part.nextRow;
+        }
+        return { rowGroups: testRowGroups, colGroups: testColGroups, rowHeights: testRowHeights, colWidths: testColWidths, cardCount: testRowGroups * testColGroups, portCount: ports.length, maxPortPoints, ports };
+      }
+
+      function estimatePorts(testCardW, testCardH) {
+        return buildPorts(testCardW, testCardH);
       }
 
       if (cardName === "R732" || moduleInterface === "HUB320") {
         if (cols % 2 === 0) {
           cardW = 2;
           cardH = 4;
-          cardMode = "2宽×4高";
+          cardMode = "2\u5bbd\u00d74\u9ad8";
         } else {
           cardW = 1;
           cardH = 8;
-          cardMode = "1宽×8高";
+          cardMode = "1\u5bbd\u00d78\u9ad8";
         }
       } else if (cardName === "R716") {
         const candidates = [{ name: "R716", w: preset.cardW, h: preset.cardH }];
@@ -460,51 +458,35 @@
           cardName = validCandidates[0].name;
           cardW = validCandidates[0].w;
           cardH = validCandidates[0].h;
-          cardMode = `${cardW}宽×${cardH}高`;
-        }
-      }
-      const rowGroups = Math.ceil(rows / cardH);
-      const colGroups = Math.ceil(cols / cardW);
-      const rowHeights = splitEven(rows, rowGroups, cardH);
-      const colWidths = splitEven(cols, colGroups, cardW);
-      const splitReason = "按接收卡带载范围分区";
-
-      const ports = [];
-      for (let r = 0; r < rowGroups; r++) {
-        const rowModH = rowHeights[r];
-        const rowPxH = rowModH * moduleH;
-        const maxPortCardCols = Math.max(1, Math.floor(LIMIT / (cardW * moduleW * rowPxH)));
-        const groups = splitGroups(colGroups, maxPortCardCols);
-        let start = 0;
-        for (const count of groups) {
-          const modW = colWidths.slice(start, start + count).reduce((a, b) => a + b, 0);
-          const pxW = modW * moduleW;
-          const points = pxW * rowPxH;
-          ports.push({ row: r, start, count, modW, modH: rowModH, pxW, pxH: rowPxH, points });
-          start += count;
+          cardMode = `${cardW}\u5bbd\u00d7${cardH}\u9ad8`;
         }
       }
 
+      const portPlan = buildPorts(cardW, cardH);
+      const rowGroups = portPlan.rowGroups;
+      const colGroups = portPlan.colGroups;
+      const rowHeights = portPlan.rowHeights;
+      const colWidths = portPlan.colWidths;
+      const ports = portPlan.ports;
       const vp = chooseVp(totalPx, ports.length);
       const cardCount = rowGroups * colGroups;
-      const exact = Number.isInteger(modColsReal) && Number.isInteger(modRowsReal);
       const answer = [
-        `推荐：${vp.name} + ${cardName}×${cardCount}`,
+        `\u63a8\u8350\uff1a${vp.name} + ${cardName}\u00d7${cardCount}`,
         "",
-        "计算：",
-        `- 屏体分辨率：${fmt(screenW, 0)}×${fmt(screenH, 0)} = ${wan(totalPx)}`,
-        `- 屏体尺寸：${fmt(screenWM, 3)}m × ${fmt(screenHM, 3)}m`,
-        `- 模组：${preset.label || moduleName}，${moduleW}×${moduleH}，接口 ${moduleInterface}`,
-        `- 输入模组数：${fmt(modColsReal, 0)}宽×${fmt(modRowsReal, 0)}高`,
-        `- 接收卡：${cardName}，按 ${cardMode} 分配`,
-        `- 分卡：横向${colGroups}列，纵向${rowGroups}行，共${cardCount}张；行高：${rowHeights.join("+")}`,
-        `- 网口：${ports.length}路，${ports.map((p, i) => `网口${i + 1} ${wan(p.points)}`).join("；")}`,
-        `- 校验：单网口上限65.536万点，当前最大${wan(Math.max(...ports.map(p => p.points)))}`,
+        "\u8ba1\u7b97\uff1a",
+        `- \u5c4f\u4f53\u5206\u8fa8\u7387\uff1a${fmt(screenW, 0)}\u00d7${fmt(screenH, 0)} = ${wan(totalPx)}`,
+        `- \u5c4f\u4f53\u5c3a\u5bf8\uff1a${fmt(screenWM, 3)}m \u00d7 ${fmt(screenHM, 3)}m`,
+        `- \u6a21\u7ec4\uff1a${preset.label || moduleName}\uff0c${moduleW}\u00d7${moduleH}\uff0c\u63a5\u53e3 ${moduleInterface}`,
+        `- \u8f93\u5165\u6a21\u7ec4\u6570\uff1a${fmt(modColsReal, 0)}\u5bbd\u00d7${fmt(modRowsReal, 0)}\u9ad8`,
+        `- \u63a5\u6536\u5361\uff1a${cardName}\uff0c\u6309 ${cardMode} \u5206\u914d`,
+        `- \u5206\u5361\uff1a\u6a2a\u5411${colGroups}\u5217\uff0c\u7eb5\u5411${rowGroups}\u884c\uff0c\u5171${cardCount}\u5f20\uff1b\u884c\u9ad8\uff1a${rowHeights.join("+")}`,
+        `- \u7f51\u53e3\uff1a${ports.length}\u8def\uff0c${ports.map((p, i) => `\u7f51\u53e3${i + 1} ${wan(p.points)}`).join("\uff1b")}`,
+        `- \u6821\u9a8c\uff1a\u5355\u7f51\u53e3\u4e0a\u965065.536\u4e07\u70b9\uff0c\u5f53\u524d\u6700\u5927${wan(Math.max(...ports.map(p => p.points)))}`,
         "",
-        "提示：网口按实际连续矩形区域验算；箭头只是推荐串卡顺序，现场可以按连续走线改方向。"
-      ].join("\n");
+        "\u63d0\u793a\uff1a\u56de\u5b57/\u86c7\u5f62\u53ea\u5728\u80fd\u51cf\u5c11\u7f51\u7ebf\u6570\u65f6\u4f7f\u7528\uff1b\u7f51\u53e3\u6309\u5b9e\u9645\u8fde\u7eed\u77e9\u5f62\u533a\u57df\u9a8c\u7b97\uff0c\u73b0\u573a\u53ef\u6309\u8fde\u7eed\u8d70\u7ebf\u6539\u65b9\u5411\u3002"
+      ].join("\\n");
 
-      return { screenType, moduleName: preset.label || moduleName, moduleInterface, moduleW, moduleH, screenW, screenH, screenWM, screenHM, modColsReal, modRowsReal, cols, rows, totalPx, preset, cardName, cardW, cardH, cardMode, splitReason, rowGroups, colGroups, rowHeights, colWidths, ports, vp, cardCount, answer };
+      return { screenType, moduleName: preset.label || moduleName, moduleInterface, moduleW, moduleH, screenW, screenH, screenWM, screenHM, modColsReal, modRowsReal, cols, rows, totalPx, preset, cardName, cardW, cardH, cardMode, rowGroups, colGroups, rowHeights, colWidths, ports, vp, cardCount, answer };
     }
 
     function rounded(ctx, x, y, w, h, r, fill, stroke, lw = 1) {
@@ -550,7 +532,24 @@
       ctx.closePath();
       ctx.fill();
     }
-    function wrap(ctx, str, x, y, maxW, lineH, size, color) {
+        function arrowLine(ctx, x0, y0, x1, y1, color) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(x0, y0);
+      ctx.lineTo(x1, y1);
+      ctx.stroke();
+      const angle = Math.atan2(y1 - y0, x1 - x0);
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x1 - 10 * Math.cos(angle - Math.PI / 6), y1 - 10 * Math.sin(angle - Math.PI / 6));
+      ctx.lineTo(x1 - 10 * Math.cos(angle + Math.PI / 6), y1 - 10 * Math.sin(angle + Math.PI / 6));
+      ctx.closePath();
+      ctx.fill();
+    }
+
+function wrap(ctx, str, x, y, maxW, lineH, size, color) {
       ctx.font = `400 ${size}px Microsoft YaHei, PingFang SC, Arial`;
       ctx.fillStyle = color;
       let line = "", yy = y;
@@ -621,10 +620,10 @@
       let cardNo = 1;
       for (let r = 0; r < result.rowGroups; r++) {
         for (let c = 0; c < result.colGroups; c++) {
-          const portIndex = result.ports.findIndex(p => p.row === r && c >= p.start && c < p.start + p.count);
+          const portIndex = result.ports.findIndex(p => r >= p.row && r < p.row + (p.rowCount || 1) && c >= p.start && c < p.start + p.count);
           const x = gridX + c * (cellW + cellGap);
           const y = gridY + r * (cellH + cellGap);
-          rounded(ctx, x, y, cellW, cellH, 3, palette[portIndex % palette.length], "#b7c4d1");
+          rounded(ctx, x, y, cellW, cellH, 3, palette[Math.max(0, portIndex) % palette.length], "#b7c4d1");
           const modW = result.colWidths[c];
           const modH = result.rowHeights[r];
           drawText(ctx, `R${cardNo}`, x + cellW / 2, y + 15, 12, "#111827", true, "center");
@@ -634,30 +633,59 @@
         }
       }
 
+      function cardCenter(row, col, nearEnd = false) {
+        const x = gridX + col * (cellW + cellGap) + (nearEnd ? cellW - 10 : 10);
+        const y = gridY + row * (cellH + cellGap) + Math.max(26, cellH - 10);
+        return { x, y };
+      }
+      function portPath(p) {
+        const path = [];
+        for (let rr = p.row; rr < p.row + (p.rowCount || 1); rr++) {
+          const local = rr - p.row;
+          if (local % 2 === 0) {
+            for (let cc = p.start; cc < p.start + p.count; cc++) path.push({ row: rr, col: cc });
+          } else {
+            for (let cc = p.start + p.count - 1; cc >= p.start; cc--) path.push({ row: rr, col: cc });
+          }
+        }
+        return path;
+      }
+
       for (let i = 0; i < result.ports.length; i++) {
         const p = result.ports[i];
         const color = paletteText[i % paletteText.length];
-        const x0 = gridX + p.start * (cellW + cellGap) + 10;
-        const x1 = gridX + (p.start + p.count - 1) * (cellW + cellGap) + cellW - 10;
-        const y = gridY + p.row * (cellH + cellGap) + cellH - 18;
-        arrow(ctx, x0, y, x1, color);
-        dot(ctx, x0, y, "S", "#059669");
-        dot(ctx, x1, y, "E", "#dc2626");
-        dot(ctx, (x0 + x1) / 2, y, String(i + 1), color);
+        const path = portPath(p);
+        for (let j = 0; j < path.length - 1; j++) {
+          const a = path[j];
+          const b = path[j + 1];
+          const pa = cardCenter(a.row, a.col, b.col > a.col);
+          const pb = cardCenter(b.row, b.col, a.col > b.col);
+          arrowLine(ctx, pa.x, pa.y, pb.x, pb.y, color);
+        }
+        const first = path[0];
+        const last = path[path.length - 1];
+        const sPoint = cardCenter(first.row, first.col, false);
+        const ePoint = cardCenter(last.row, last.col, true);
+        dot(ctx, sPoint.x, sPoint.y, "S", "#059669");
+        dot(ctx, ePoint.x, ePoint.y, "E", "#dc2626");
+        const mid = path[Math.floor((path.length - 1) / 2)];
+        const midPoint = cardCenter(mid.row, mid.col, true);
+        dot(ctx, midPoint.x, midPoint.y, String(i + 1), color);
       }
 
       const noteY = gridY + result.rowGroups * (cellH + cellGap) + 28;
       for (let i = 0; i < result.ports.length; i++) {
         const p = result.ports[i];
-        const start = p.row * result.colGroups + p.start + 1;
-        const end = start + p.count - 1;
-        const note = `\u7f51\u53e3${i + 1}\uff1aR${start} \u2192 ... \u2192 R${end}\uff0c${p.modW}\u5217\u00d7${p.modH}\u9ad8 = ${p.pxW}\u00d7${p.pxH} = ${wan(p.points)}`;
+        const path = portPath(p);
+        const cardIds = path.map(item => `R${item.row * result.colGroups + item.col + 1}`);
+        const chain = cardIds.length <= 6 ? cardIds.join(" \u2192 ") : `${cardIds[0]} \u2192 ... \u2192 ${cardIds[cardIds.length - 1]}`;
+        const note = `\u7f51\u53e3${i + 1}\uff1a${chain}\uff0c${p.modW}\u5217\u00d7${p.modH}\u9ad8 = ${p.pxW}\u00d7${p.pxH} = ${wan(p.points)}`;
         drawText(ctx, note, dx + 34 + (i % 2) * 815, noteY + Math.floor(i / 2) * 25, 16, paletteText[i % paletteText.length], true);
       }
 
       rounded(ctx, dx, checkY, dw, 92, 7, "#f8fafc", "#cfd8e3");
       const maxPort = Math.max(...result.ports.map(p => p.points));
-      wrap(ctx, `\u4ec5\u4f9b\u53c2\u8003\uff1a\u9a8c\u7b97\uff1a\u8f93\u5165\u4e3a${fmt(result.modColsReal, 0)}\u5bbd\u00d7${fmt(result.modRowsReal, 0)}\u9ad8\uff0c\u5b9e\u9645\u914d\u5361\u6309${result.cols}\u5bbd\u00d7${result.rows}\u9ad8\uff0c\u5171${result.cardCount}\u5f20${result.cardName}\u3002\u7f51\u53e3\u6309\u5916\u63a5\u77e9\u5f62\u8ba1\u7b97\uff0c\u6700\u5927${wan(maxPort)}\uff0c\u5c0f\u4e8e65.536\u4e07\u70b9\uff1b${result.vp.name}\u6ee1\u8db3\u672c\u5c4f${wan(result.totalPx)}\u3002`, dx + 22, checkY + 15, dw - 44, 25, 15, "#334155");
+      wrap(ctx, `\u4ec5\u4f9b\u53c2\u8003\uff1a\u9a8c\u7b97\uff1a\u5c4f\u4f53\u5b9e\u9645\u4e3a${fmt(result.modColsReal, 0)}\u5bbd\u00d7${fmt(result.modRowsReal, 0)}\u9ad8\uff0c\u5171${fmt(result.modColsReal * result.modRowsReal, 0)}\u5f20\u6a21\u7ec4\uff0c${result.cardName}\u5171${result.cardCount}\u5f20\u3002\u56de\u5b57/\u86c7\u5f62\u53ea\u5728\u80fd\u51cf\u5c11\u7f51\u7ebf\u6570\u65f6\u4f7f\u7528\uff1b\u7f51\u53e3\u6309\u5b9e\u9645\u8fde\u7eed\u77e9\u5f62\u533a\u57df\u8ba1\u7b97\uff0c\u6700\u5927${wan(maxPort)}\uff0c\u5c0f\u4e8e65.536\u4e07\u70b9\uff1b${result.vp.name}\u6309\u6574\u5c4f\u5b9e\u9645\u5bbd\u00d7\u9ad8${wan(result.totalPx)}\u9a8c\u7b97\u6ee1\u8db3\u3002`, dx + 22, checkY + 15, dw - 44, 25, 15, "#334155");
     }
 
     function drawTables(ctx, r, x, y, w) {
