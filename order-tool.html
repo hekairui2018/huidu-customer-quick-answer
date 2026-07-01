@@ -12,6 +12,53 @@
       color: #111827;
       font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
     }
+
+    .tool-topbar {
+      min-height: 64px;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: #fff;
+      background: #0f1b24;
+    }
+    .tool-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .tool-brand span {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: #183d52;
+      font-weight: 800;
+    }
+    .tool-brand strong,
+    .back-link {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .back-link {
+      min-height: 36px;
+      padding: 0 14px;
+      display: inline-flex;
+      align-items: center;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: #d7ecff;
+      border-color: rgba(215, 236, 255, 0.86);
+    }
     .app { max-width: 1280px; margin: 0 auto; padding: 22px; }
     h1 { margin: 0 0 16px; font-size: 28px; }
     .panel {
@@ -80,6 +127,14 @@
   </style>
 </head>
 <body>
+
+  <header class="tool-topbar">
+    <a class="tool-brand" href="index.html">
+      <span>H</span>
+      <strong>配单工具</strong>
+    </a>
+    <a class="back-link" href="index.html">返回产品速查</a>
+  </header>
   <main class="app">
     <h1>LED配单图工具</h1>
 
@@ -333,6 +388,10 @@
       const screenWM = Number($("screenWM").value);
       const screenHM = Number($("screenHM").value);
 
+      if (![moduleW, moduleH, screenW, screenH, modColsReal, modRowsReal].every(value => Number.isFinite(value) && value > 0)) {
+        return { unsupported: true, answer: "请先填写有效的模组分辨率、屏幕分辨率和模组宽高数量，数值必须大于 0。" };
+      }
+
       if (controlType !== "VP") {
         return { unsupported: true, answer: "\u5f53\u524d\u7248\u672c\u5148\u5b8c\u6574\u652f\u6301\uff1a\u6a21\u7ec4/\u7bb1\u4f53 + \u540c\u6b65 VP\u3002\u5f02\u6b65\u5165\u53e3\u5df2\u4fdd\u7559\uff0c\u540e\u9762\u7ee7\u7eed\u8865\u89c4\u5219\u3002" };
       }
@@ -436,10 +495,12 @@
         }
         function cardPreference(item) {
           const isR716Split = item.name === "R716" && item.w === preset.cardW * 2 && item.h === preset.cardH / 2;
+          const sameRowsAsR716Split = preset.cardH % 2 === 0 && Math.ceil(rows / item.h) === Math.ceil(rows / (preset.cardH / 2));
+          if (item.name === "R712" && item.w === 2 && item.h === 6 && sameRowsAsR716Split) return 0;
           if (rows <= 6) return item.name === "R712" && item.w === 2 && item.h === 6 ? 0 : 2;
           if (rows === 7 || rows === 8) return isR716Split ? 0 : 2;
           if (rows >= 9 && rows <= 12) return item.name === "R712" && item.w === 1 && item.h === 12 ? 0 : 2;
-          if (rows >= 13) return isR716Split ? 0 : (item.name === "R716" ? 1 : 3);
+          if (rows >= 13) return isR716Split ? 1 : (item.name === "R716" ? 2 : 3);
           return item.name === "R716" ? 0 : 2;
         }
         const validCandidates = candidates
