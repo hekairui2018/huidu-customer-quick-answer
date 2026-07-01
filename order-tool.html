@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LED配单图工具</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #eef2f6;
+      color: #111827;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    }
+    .app { max-width: 1280px; margin: 0 auto; padding: 22px; }
+    h1 { margin: 0 0 16px; font-size: 28px; }
+    .panel {
+      background: #fff;
+      border: 1px solid #d8e0ea;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    .form {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 12px;
+      align-items: end;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #475569;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    input, select, button {
+      width: 100%;
+      height: 38px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0 10px;
+      background: #fff;
+      font: inherit;
+    }
+    button {
+      cursor: pointer;
+      border-color: #155bd6;
+      background: #155bd6;
+      color: #fff;
+      font-weight: 800;
+    }
+    .ghost {
+      background: #f8fafc;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+    .actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 12px; }
+    .answer {
+      white-space: pre-wrap;
+      min-height: 120px;
+      padding: 14px;
+      border: 1px solid #d8e0ea;
+      border-radius: 8px;
+      background: #fbfcfe;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .canvas-wrap {
+      max-height: 640px;
+      overflow: auto;
+      padding: 12px;
+      border: 1px solid #d8e0ea;
+      border-radius: 8px;
+      background: #fff;
+    }
+    canvas { display: block; background: #f3f5f7; }
+    .hint { margin-top: 10px; color: #64748b; font-size: 13px; line-height: 1.55; }
+    @media (max-width: 1000px) { .form { grid-template-columns: repeat(2, minmax(120px, 1fr)); } }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <h1>LED配单图工具</h1>
+
+    <section class="panel">
+      <div class="form">
+        <div>
+                              <label>屏结构</label>
+          <select id="screenType">
+            <option value="模组">模组</option>
+            <option value="箱体">箱体</option>
+          </select>
+        </div>
+        <div>
+          <label>控制方式</label>
+                    <select id="controlType">
+            <option value="VP">同步 VP</option>
+            <option value="async">异步 A/B/C/D</option>
+          </select>
+        </div>
+        <div>
+          <label>模组规格</label>
+          <select id="moduleName">
+            <option value="P1.25-256x128-hub320">P1.25 室内 256×128 HUB320</option>
+            <option value="P1.25-256x128-hub75">P1.25 室内 256×128 HUB75</option>
+            <option value="P1.538-208x104">P1.538 室内 208×104</option>
+            <option value="P1.86-172x86">P1.86 室内 172×86</option>
+            <option value="P1.875-128x128">P1.875 室内 128×128</option>
+            <option value="P2-128x64">P2 室内 128×64</option>
+            <option value="P2-160x80">P2 室内 160×80</option>
+            <option value="P2.5-128x64" selected>P2.5 室内 128×64</option>
+            <option value="P2.5-out-96x48">P2.5 户外 96×48</option>
+            <option value="P3-64x64">P3 室内/户外 64×64</option>
+            <option value="P3.076-104x52">P3.076 104×52</option>
+            <option value="P3.91-64x64">P3.91 户外 64×64</option>
+            <option value="P4-64x64">P4 室内 64×64</option>
+            <option value="P4-64x32">P4 / P4户外 64×32</option>
+            <option value="P4-80x40">P4 户外 80×40</option>
+            <option value="P4.81-52x52">P4.81 户外 52×52</option>
+            <option value="P5-64x32">P5 户外 64×32</option>
+            <option value="P6-32x32">P6 户外 32×32</option>
+            <option value="P6.67-48x24">P6.67 户外 48×24</option>
+            <option value="P8-40x20">P8 / Q8 40×20</option>
+            <option value="P8-32x16">P8 户外 32×16</option>
+            <option value="P10-32x16">P10 户外 32×16</option>
+            <option value="custom">自定义模组规格</option>
+          </select>
+        </div>
+        <div>
+          <label>模组接口</label>
+          <select id="moduleInterface">
+            <option value="HUB320">HUB320</option>
+            <option value="HUB75E">HUB75E</option>
+            <option value="HUB75" selected>HUB75</option>
+            <option value="HUB08">HUB08</option>
+            <option value="HUB12">HUB12</option>
+          </select>
+        </div>
+        <div>
+          <label>模组分辨率宽</label>
+          <input id="moduleW" type="number" min="1" step="0.01" value="128">
+        </div>
+        <div>
+          <label>模组分辨率高</label>
+          <input id="moduleH" type="number" min="1" step="0.01" value="64">
+        </div>
+        <div>
+          <label>模组宽数</label>
+          <input id="moduleCols" type="number" min="0" step="1" value="36">
+        </div>
+        <div>
+          <label>模组高数</label>
+          <input id="moduleRows" type="number" min="0" step="1" value="23">
+        </div>
+        <div>
+          <label>屏宽分辨率px</label>
+          <input id="screenW" type="number" min="1" step="1" value="4608">
+        </div>
+        <div>
+          <label>屏高分辨率px</label>
+          <input id="screenH" type="number" min="1" step="1" value="1472">
+        </div>
+        <div>
+          <label>屏宽尺寸m</label>
+          <input id="screenWM" type="number" min="0" step="0.001" value="">
+        </div>
+        <div>
+          <label>屏高尺寸m</label>
+          <input id="screenHM" type="number" min="0" step="0.001" value="">
+        </div>
+        <div>
+          <label>备注</label>
+          <input id="titleNote" value="" placeholder="可选备注">
+        </div>
+      </div>
+      <div class="actions">
+        <button id="calcBtn">生成文字+配单图</button>
+        <button class="ghost" id="downloadBtn">导出JPG</button>
+      </div>
+      <div class="hint">屏宽/高分辨率px、模组宽/高数保持整数；屏宽/高尺寸m允许小数。三组数据会按模组分辨率和点间距互相计算。</div>
+    </section>
+
+    <section class="panel">
+      <div id="answer" class="answer"></div>
+    </section>
+
+    <section class="canvas-wrap">
+      <canvas id="drawing" width="1900" height="1120"></canvas>
+    </section>
+  </main>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const LIMIT = 655360;
+    const palette = ["#ffc59b", "#ffe39b", "#d9b5f0", "#aee4e7", "#b8dfb8", "#c1d5ff"];
+    const paletteText = ["#e05a00", "#a67b00", "#7e22ce", "#087f8c", "#16803d", "#3158c9"];
+    let inputMode = "modules";
+
+    const modulePresets = {
+      "P1.25-256x128-hub320": { label: "P1.25 室内", w: 256, h: 128, iface: "HUB320", card: "R732", cardW: 1, cardH: 8 },
+      "P1.25-256x128-hub75": { label: "P1.25 室内", w: 256, h: 128, iface: "HUB75", card: "R716", cardW: 1, cardH: 10 },
+      "P1.538-208x104": { label: "P1.538 室内", w: 208, h: 104, iface: "HUB75", card: "R716", cardW: 1, cardH: 10 },
+      "P1.86-172x86": { label: "P1.86 室内", w: 172, h: 86, iface: "HUB75", card: "R716", cardW: 1, cardH: 16 },
+      "P1.875-128x128": { label: "P1.875 室内", w: 128, h: 128, iface: "HUB75", card: "R716", cardW: 1, cardH: 16 },
+      "P2-128x64": { label: "P2 室内", w: 128, h: 64, iface: "HUB75", card: "R716", cardW: 1, cardH: 16 },
+      "P2-160x80": { label: "P2 室内", w: 160, h: 80, iface: "HUB75", card: "R716", cardW: 1, cardH: 16 },
+      "P2.5-128x64": { label: "P2.5 室内", w: 128, h: 64, iface: "HUB75", card: "R716", cardW: 1, cardH: 16 },
+      "P2.5-out-96x48": { label: "P2.5 户外", w: 96, h: 48, iface: "HUB75", card: "R716", cardW: 1, cardH: 16 },
+      "P3-64x64": { label: "P3", w: 64, h: 64, iface: "HUB75", card: "R716", cardW: 2, cardH: 16 },
+      "P3.076-104x52": { label: "P3.076", w: 104, h: 52, iface: "HUB75", card: "R716", cardW: 1, cardH: 16 },
+      "P3.91-64x64": { label: "P3.91 户外", w: 64, h: 64, iface: "HUB75", card: "R716", cardW: 1, cardH: 16 },
+      "P4-64x64": { label: "P4 室内", w: 64, h: 64, iface: "HUB75", card: "R716", cardW: 2, cardH: 16 },
+      "P4-64x32": { label: "P4 / P4户外", w: 64, h: 32, iface: "HUB75", card: "R716", cardW: 4, cardH: 16 },
+      "P4-80x40": { label: "P4 户外", w: 80, h: 40, iface: "HUB75", card: "R716", cardW: 2, cardH: 16 },
+      "P4.81-52x52": { label: "P4.81 户外", w: 52, h: 52, iface: "HUB75", card: "R716", cardW: 1, cardH: 16 },
+      "P5-64x32": { label: "P5 户外", w: 64, h: 32, iface: "HUB75", card: "R716", cardW: 4, cardH: 16 },
+      "P6-32x32": { label: "P6 户外", w: 32, h: 32, iface: "HUB75", card: "R716", cardW: 8, cardH: 16 },
+      "P6.67-48x24": { label: "P6.67 户外", w: 48, h: 24, iface: "HUB75", card: "R716", cardW: 2, cardH: 16 },
+      "P8-40x20": { label: "P8 / Q8", w: 40, h: 20, iface: "HUB75", card: "R716", cardW: 7, cardH: 16 },
+      "P8-32x16": { label: "P8 户外", w: 32, h: 16, iface: "HUB75", card: "R716", cardW: 12, cardH: 16 },
+      "P10-32x16": { label: "P10 户外", w: 32, h: 16, iface: "HUB75", card: "R716", cardW: 12, cardH: 16 }
+    };
+    const vps = [
+      { name: "VP210", max: 1300000, ports: 2 },
+      { name: "VP410", max: 2600000, ports: 4 },
+      { name: "VP620", max: 3900000, ports: 6 },
+      { name: "VP820", max: 5200000, ports: 8 },
+      { name: "VP1220", max: 7800000, ports: 12 },
+      { name: "VP1620", max: 10400000, ports: 16 },
+      { name: "VP2060", max: 13000000, ports: 20 },
+      { name: "VP2430", max: 15700000, ports: 24 },
+      { name: "VP3060", max: 19500000, ports: 30 },
+      { name: "VP4060", max: 26000000, ports: 40 }
+    ];
+
+    function fmt(n, digits = 4) {
+      if (!Number.isFinite(Number(n))) return "";
+      return Number(n).toFixed(digits).replace(/\.?0+$/, "");
+    }
+    function wan(n) { return `${(n / 10000).toFixed(4)}万点`; }
+    function splitEven(total, parts, maxEach) {
+      const base = Math.floor(total / parts);
+      let rem = total % parts;
+      const arr = [];
+      for (let i = 0; i < parts; i++) arr.push(base + (rem-- > 0 ? 1 : 0));
+      if (Math.max(...arr) > maxEach) throw new Error("分配超出单卡能力");
+      return arr;
+    }
+    function splitGroups(total, maxEach) {
+      const count = Math.ceil(total / maxEach);
+      const base = Math.floor(total / count);
+      let rem = total % count;
+      const arr = [];
+      for (let i = 0; i < count; i++) arr.push(base + (rem-- > 0 ? 1 : 0));
+      return arr.filter(Boolean);
+    }
+    function chooseVp(totalPx, portCount) {
+      return vps.find(v => totalPx <= v.max && portCount <= v.ports) || vps[vps.length - 1];
+    }
+    function getPitch() {
+      const value = $("moduleName").value || "";
+      const label = $("moduleName").selectedOptions[0]?.textContent || "";
+      const source = `${value} ${label}`;
+      const m = source.match(/[PQ](\d+(?:\.\d+)?)/i);
+      return m ? Number(m[1]) : 0;
+    }
+    function setMetersFromPixels() {
+      const pitch = getPitch();
+      const sw = Number($("screenW").value), sh = Number($("screenH").value);
+      if (pitch && sw && sh) {
+        $("screenWM").value = fmt(sw * pitch / 1000, 3);
+        $("screenHM").value = fmt(sh * pitch / 1000, 3);
+      }
+    }
+    function syncFromModules() {
+      const mw = Number($("moduleW").value), mh = Number($("moduleH").value);
+      const mc = Math.max(0, Math.round(Number($("moduleCols").value) || 0));
+      const mr = Math.max(0, Math.round(Number($("moduleRows").value) || 0));
+      $("moduleCols").value = mc || "";
+      $("moduleRows").value = mr || "";
+      if (mw && mh && mc && mr) {
+        $("screenW").value = String(mc * mw);
+        $("screenH").value = String(mr * mh);
+        setMetersFromPixels();
+      }
+    }
+    function syncFromPixels() {
+      const mw = Number($("moduleW").value), mh = Number($("moduleH").value);
+      const sw = Math.max(0, Math.round(Number($("screenW").value) || 0));
+      const sh = Math.max(0, Math.round(Number($("screenH").value) || 0));
+      $("screenW").value = sw || "";
+      $("screenH").value = sh || "";
+      if (mw && mh && sw && sh) {
+        $("moduleCols").value = String(Math.ceil(sw / mw));
+        $("moduleRows").value = String(Math.ceil(sh / mh));
+        setMetersFromPixels();
+      }
+    }
+    function syncFromMeters() {
+      const pitch = getPitch();
+      const mw = Number($("moduleW").value), mh = Number($("moduleH").value);
+      const wm = Number($("screenWM").value), hm = Number($("screenHM").value);
+      if (pitch && mw && mh && wm && hm) {
+        const rawW = Math.ceil(wm * 1000 / pitch);
+        const rawH = Math.ceil(hm * 1000 / pitch);
+        const mc = Math.ceil(rawW / mw);
+        const mr = Math.ceil(rawH / mh);
+        $("moduleCols").value = String(mc);
+        $("moduleRows").value = String(mr);
+        $("screenW").value = String(mc * mw);
+        $("screenH").value = String(mr * mh);
+        setMetersFromPixels();
+      }
+    }
+
+    function calculate() {
+      const screenType = $("screenType").value;
+      const controlType = $("controlType").value;
+      const moduleName = $("moduleName").value;
+      const moduleW = Number($("moduleW").value);
+      const moduleH = Number($("moduleH").value);
+
+      if (inputMode === "modules") syncFromModules();
+      if (inputMode === "pixels") syncFromPixels();
+      if (inputMode === "meters") syncFromMeters();
+
+      const screenW = Number($("screenW").value);
+      const screenH = Number($("screenH").value);
+      const modColsReal = Number($("moduleCols").value);
+      const modRowsReal = Number($("moduleRows").value);
+      const moduleInterface = $("moduleInterface").value;
+      const screenWM = Number($("screenWM").value);
+      const screenHM = Number($("screenHM").value);
+
+      if (controlType !== "VP") {
+        return { unsupported: true, answer: "当前版本先完整支持：模组/箱体 + 同步 VP。异步入口已保留，后面继续补规则。" };
+      }
+      const preset = modulePresets[moduleName] || { label: "自定义模组", w: moduleW, h: moduleH, iface: moduleInterface, card: "R716", cardW: 1, cardH: 16 };
+      const cols = Math.ceil(modColsReal);
+      const rows = Math.ceil(modRowsReal);
+      const totalPx = screenW * screenH;
+      let cardName = moduleInterface === "HUB320" ? "R732" : preset.card;
+      let cardW = preset.cardW;
+      let cardH = preset.cardH;
+      let cardMode = `${cardW}宽×${cardH}高`;
+
+      function estimatePorts(testCardW, testCardH) {
+        const testRowGroups = Math.ceil(rows / testCardH);
+        const testColGroups = Math.ceil(cols / testCardW);
+        const testRowHeights = splitEven(rows, testRowGroups, testCardH);
+        let portCount = 0;
+        let maxPortPoints = 0;
+        for (const rowModH of testRowHeights) {
+          const rowPxH = rowModH * moduleH;
+          const maxPortCardCols = Math.max(1, Math.floor(LIMIT / (testCardW * moduleW * rowPxH)));
+          const groups = splitGroups(testColGroups, maxPortCardCols);
+          portCount += groups.length;
+          for (const count of groups) {
+            const points = count * testCardW * moduleW * rowPxH;
+            maxPortPoints = Math.max(maxPortPoints, points);
+          }
+        }
+        return { rowGroups: testRowGroups, colGroups: testColGroups, cardCount: testRowGroups * testColGroups, portCount, maxPortPoints };
+      }
+
+      if (cardName === "R732" || moduleInterface === "HUB320") {
+        if (cols % 2 === 0) {
+          cardW = 2;
+          cardH = 4;
+          cardMode = "2宽×4高";
+        } else {
+          cardW = 1;
+          cardH = 8;
+          cardMode = "1宽×8高";
+        }
+      } else if (cardName === "R716") {
+        const candidates = [{ name: "R716", w: preset.cardW, h: preset.cardH }];
+        if (preset.cardH % 2 === 0) {
+          candidates.push({ name: "R716", w: preset.cardW * 2, h: preset.cardH / 2 });
+        }
+        if (preset.cardW === 1 && preset.cardH === 16) {
+          candidates.push({ name: "R712", w: 1, h: 12 });
+          candidates.push({ name: "R712", w: 2, h: 6 });
+        }
+        function cardPreference(item) {
+          const isR716Split = item.name === "R716" && item.w === preset.cardW * 2 && item.h === preset.cardH / 2;
+          if (rows <= 6) return item.name === "R712" && item.w === 2 && item.h === 6 ? 0 : 2;
+          if (rows === 7 || rows === 8) return isR716Split ? 0 : 2;
+          if (rows >= 9 && rows <= 12) return item.name === "R712" && item.w === 1 && item.h === 12 ? 0 : 2;
+          if (rows >= 13) return isR716Split ? 0 : (item.name === "R716" ? 1 : 3);
+          return item.name === "R716" ? 0 : 2;
+        }
+        const validCandidates = candidates
+          .filter(item => item.w <= cols && item.h <= rows * 2)
+          .map(item => ({ ...item, ...estimatePorts(item.w, item.h) }))
+          .filter(item => item.maxPortPoints <= LIMIT);
+        validCandidates.sort((a, b) =>
+          a.portCount - b.portCount ||
+          a.cardCount - b.cardCount ||
+          cardPreference(a) - cardPreference(b) ||
+          b.w - a.w ||
+          a.rowGroups - b.rowGroups ||
+          Math.abs(a.h - rows / a.rowGroups) - Math.abs(b.h - rows / b.rowGroups)
+        );
+        if (validCandidates.length) {
+          cardName = validCandidates[0].name;
+          cardW = validCandidates[0].w;
+          cardH = validCandidates[0].h;
+          cardMode = `${cardW}宽×${cardH}高`;
+        }
+      }
+      const rowGroups = Math.ceil(rows / cardH);
+      const colGroups = Math.ceil(cols / cardW);
+      const rowHeights = splitEven(rows, rowGroups, cardH);
+      const colWidths = splitEven(cols, colGroups, cardW);
+      const splitReason = "按接收卡带载范围分区";
+
+      const ports = [];
+      for (let r = 0; r < rowGroups; r++) {
+        const rowModH = rowHeights[r];
+        const rowPxH = rowModH * moduleH;
+        const maxPortCardCols = Math.max(1, Math.floor(LIMIT / (cardW * moduleW * rowPxH)));
+        const groups = splitGroups(colGroups, maxPortCardCols);
+        let start = 0;
+        for (const count of groups) {
+          const modW = colWidths.slice(start, start + count).reduce((a, b) => a + b, 0);
+          const pxW = modW * moduleW;
+          const points = pxW * rowPxH;
+          ports.push({ row: r, start, count, modW, modH: rowModH, pxW, pxH: rowPxH, points });
+          start += count;
+        }
+      }
+
+      const vp = chooseVp(totalPx, ports.length);
+      const cardCount = rowGroups * colGroups;
+      const exact = Number.isInteger(modColsReal) && Number.isInteger(modRowsReal);
+      const answer = [
+        `推荐：${vp.name} + ${cardName}×${cardCount}`,
+        "",
+        "计算：",
+        `- 屏体分辨率：${fmt(screenW, 0)}×${fmt(screenH, 0)} = ${wan(totalPx)}`,
+        `- 屏体尺寸：${fmt(screenWM, 3)}m × ${fmt(screenHM, 3)}m`,
+        `- 模组：${preset.label || moduleName}，${moduleW}×${moduleH}，接口 ${moduleInterface}`,
+        `- 输入模组数：${fmt(modColsReal, 0)}宽×${fmt(modRowsReal, 0)}高`,
+        `- 接收卡：${cardName}，按 ${cardMode} 分配`,
+        `- 分卡：横向${colGroups}列，纵向${rowGroups}行，共${cardCount}张；行高：${rowHeights.join("+")}`,
+        `- 网口：${ports.length}路，${ports.map((p, i) => `网口${i + 1} ${wan(p.points)}`).join("；")}`,
+        `- 校验：单网口上限65.536万点，当前最大${wan(Math.max(...ports.map(p => p.points)))}`,
+        "",
+        "提示：网口按实际连续矩形区域验算；箭头只是推荐串卡顺序，现场可以按连续走线改方向。"
+      ].join("\n");
+
+      return { screenType, moduleName: preset.label || moduleName, moduleInterface, moduleW, moduleH, screenW, screenH, screenWM, screenHM, modColsReal, modRowsReal, cols, rows, totalPx, preset, cardName, cardW, cardH, cardMode, splitReason, rowGroups, colGroups, rowHeights, colWidths, ports, vp, cardCount, answer };
+    }
+
+    function rounded(ctx, x, y, w, h, r, fill, stroke, lw = 1) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+      if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+      if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); }
+    }
+    function drawText(ctx, t, x, y, size, color = "#111827", bold = false, align = "left") {
+      ctx.font = `${bold ? 700 : 400} ${size}px Microsoft YaHei, PingFang SC, Arial`;
+      ctx.fillStyle = color;
+      ctx.textAlign = align;
+      ctx.textBaseline = "top";
+      ctx.fillText(t, x, y);
+    }
+    function dot(ctx, x, y, label, color) {
+      ctx.beginPath();
+      ctx.arc(x, y, 14, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.strokeStyle = "#fff";
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      drawText(ctx, label, x, y - 8, 14, "#fff", true, "center");
+    }
+    function arrow(ctx, x0, y, x1, color) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(x0, y);
+      ctx.lineTo(x1, y);
+      ctx.stroke();
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.moveTo(x1, y);
+      ctx.lineTo(x1 - 12, y - 7);
+      ctx.lineTo(x1 - 12, y + 7);
+      ctx.closePath();
+      ctx.fill();
+    }
+    function wrap(ctx, str, x, y, maxW, lineH, size, color) {
+      ctx.font = `400 ${size}px Microsoft YaHei, PingFang SC, Arial`;
+      ctx.fillStyle = color;
+      let line = "", yy = y;
+      for (const ch of str) {
+        const test = line + ch;
+        if (ctx.measureText(test).width > maxW && line) {
+          ctx.fillText(line, x, yy);
+          yy += lineH;
+          line = ch;
+        } else line = test;
+      }
+      if (line) ctx.fillText(line, x, yy);
+    }
+
+    function draw(result) {
+      const canvas = $("drawing");
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#f3f5f7";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      if (result.unsupported) {
+        drawText(ctx, "\u5f53\u524d\u7cfb\u7edf\u7c7b\u578b\u6682\u672a\u751f\u6210\u914d\u5355\u56fe", 80, 80, 30, "#111827", true);
+        wrap(ctx, result.answer, 80, 140, 1200, 28, 18, "#475569");
+        return;
+      }
+
+      const noteRows = Math.ceil(result.ports.length / 2);
+      const estimatedCellH = Math.max(44, Math.min(96, Math.floor((300 - 5 * (result.rowGroups - 1)) / result.rowGroups)));
+      const dynamicDiagramH = 96 + result.rowGroups * (estimatedCellH + 5) + noteRows * 25 + 34;
+      const pageX = 55, pageY = 28, pageW = 1790;
+      const dx = pageX + 48, dw = 1694;
+      const recY = pageY + 106;
+      const tablesY = recY + 60;
+      const tableBlockH = 32 * 8;
+      const diagramY = tablesY + tableBlockH + 30;
+      const diagramH = Math.max(360, dynamicDiagramH);
+      const checkY = diagramY + diagramH + 16;
+      const pageH = Math.max(1058, checkY - pageY + 128);
+
+      canvas.height = pageY + pageH + 34;
+      ctx.fillStyle = "#f3f5f7";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      rounded(ctx, pageX, pageY, pageW, pageH, 30, "#fff", "#dfe4ea", 2);
+      rounded(ctx, pageX + 32, pageY + 24, 9, 36, 4, "#0b55d9");
+      const title = `${result.moduleName} ${result.screenType || "模组"}屏施工预览图${$("titleNote").value ? " - " + $("titleNote").value : ""}`;
+      drawText(ctx, title, pageX + 54, pageY + 22, 34, "#111827", true);
+      drawText(ctx, `${fmt(result.screenW, 0)}\u00d7${fmt(result.screenH, 0)} \u00b7 \u6a21\u7ec4${result.moduleW}\u00d7${result.moduleH} \u00b7 ${result.moduleInterface} \u00b7 ${fmt(result.modColsReal, 0)}\u5bbd\u00d7${fmt(result.modRowsReal, 0)}\u9ad8 \u00b7 ${result.vp.name} + ${result.cardName}\u00d7${result.cardCount} \u00b7 ${result.ports.length}\u8def\u7f51\u53e3\u8f93\u51fa`, pageX + 54, pageY + 70, 17, "#4b5563");
+
+      rounded(ctx, dx, recY, dw, 46, 6, "#0b55d9");
+      drawText(ctx, `\u63a8\u8350\uff1a${result.vp.name} + ${result.cardName}\u00d7${result.cardCount}\uff1b${result.ports.length}\u8def\u7f51\u53e3\u8f93\u51fa\uff1b${result.colGroups}\u5217\u00d7${result.rowGroups}\u884c\u5206\u533a\uff0c\u7f51\u53e3\u6309\u8fde\u7eed\u77e9\u5f62\u5206\u914d\u3002`, dx + 90, recY + 11, 20, "#fff", true);
+      drawTables(ctx, result, dx, tablesY, dw);
+
+      rounded(ctx, dx, diagramY, dw, diagramH, 7, "#fff", "#a9c3ff", 2);
+      drawText(ctx, "\u7f51\u7ebf\u8fde\u63a5\u5173\u7cfb", dx + 24, diagramY + 18, 18, "#0f172a", true);
+
+      const gridX = dx + 48, gridY = diagramY + 58;
+      const cellGap = 5;
+      const cellW = Math.max(28, Math.min(78, Math.floor((dw - 120 - cellGap * (result.colGroups - 1)) / result.colGroups)));
+      const maxGridH = Math.max(120, result.rowGroups * estimatedCellH + cellGap * (result.rowGroups - 1));
+      const cellH = Math.max(44, Math.min(96, Math.floor((maxGridH - cellGap * (result.rowGroups - 1)) / result.rowGroups)));
+      const labelStep = Math.max(1, Math.ceil(result.colGroups / 14));
+      for (let c = 0; c < result.colGroups; c++) {
+        if (c % labelStep === 0) drawText(ctx, String(c + 1), gridX + c * (cellW + cellGap) + cellW / 2, gridY - 25, 12, "#111827", false, "center");
+      }
+      for (let r = 0; r < result.rowGroups; r++) drawText(ctx, String(r + 1), dx + 24, gridY + r * (cellH + cellGap) + cellH / 2 - 8, 16, "#111827", true, "center");
+
+      let cardNo = 1;
+      for (let r = 0; r < result.rowGroups; r++) {
+        for (let c = 0; c < result.colGroups; c++) {
+          const portIndex = result.ports.findIndex(p => p.row === r && c >= p.start && c < p.start + p.count);
+          const x = gridX + c * (cellW + cellGap);
+          const y = gridY + r * (cellH + cellGap);
+          rounded(ctx, x, y, cellW, cellH, 3, palette[portIndex % palette.length], "#b7c4d1");
+          const modW = result.colWidths[c];
+          const modH = result.rowHeights[r];
+          drawText(ctx, `R${cardNo}`, x + cellW / 2, y + 15, 12, "#111827", true, "center");
+          drawText(ctx, `${modW}\u00d7${modH}`, x + cellW / 2, y + 38, 11, "#111827", true, "center");
+          drawText(ctx, `${modW * result.moduleW}\u00d7${modH * result.moduleH}`, x + cellW / 2, y + 61, 10, "#111827", true, "center");
+          cardNo++;
+        }
+      }
+
+      for (let i = 0; i < result.ports.length; i++) {
+        const p = result.ports[i];
+        const color = paletteText[i % paletteText.length];
+        const x0 = gridX + p.start * (cellW + cellGap) + 10;
+        const x1 = gridX + (p.start + p.count - 1) * (cellW + cellGap) + cellW - 10;
+        const y = gridY + p.row * (cellH + cellGap) + cellH - 18;
+        arrow(ctx, x0, y, x1, color);
+        dot(ctx, x0, y, "S", "#059669");
+        dot(ctx, x1, y, "E", "#dc2626");
+        dot(ctx, (x0 + x1) / 2, y, String(i + 1), color);
+      }
+
+      const noteY = gridY + result.rowGroups * (cellH + cellGap) + 28;
+      for (let i = 0; i < result.ports.length; i++) {
+        const p = result.ports[i];
+        const start = p.row * result.colGroups + p.start + 1;
+        const end = start + p.count - 1;
+        const note = `\u7f51\u53e3${i + 1}\uff1aR${start} \u2192 ... \u2192 R${end}\uff0c${p.modW}\u5217\u00d7${p.modH}\u9ad8 = ${p.pxW}\u00d7${p.pxH} = ${wan(p.points)}`;
+        drawText(ctx, note, dx + 34 + (i % 2) * 815, noteY + Math.floor(i / 2) * 25, 16, paletteText[i % paletteText.length], true);
+      }
+
+      rounded(ctx, dx, checkY, dw, 92, 7, "#f8fafc", "#cfd8e3");
+      const maxPort = Math.max(...result.ports.map(p => p.points));
+      wrap(ctx, `\u4ec5\u4f9b\u53c2\u8003\uff1a\u9a8c\u7b97\uff1a\u8f93\u5165\u4e3a${fmt(result.modColsReal, 0)}\u5bbd\u00d7${fmt(result.modRowsReal, 0)}\u9ad8\uff0c\u5b9e\u9645\u914d\u5361\u6309${result.cols}\u5bbd\u00d7${result.rows}\u9ad8\uff0c\u5171${result.cardCount}\u5f20${result.cardName}\u3002\u7f51\u53e3\u6309\u5916\u63a5\u77e9\u5f62\u8ba1\u7b97\uff0c\u6700\u5927${wan(maxPort)}\uff0c\u5c0f\u4e8e65.536\u4e07\u70b9\uff1b${result.vp.name}\u6ee1\u8db3\u672c\u5c4f${wan(result.totalPx)}\u3002`, dx + 22, checkY + 15, dw - 44, 25, 15, "#334155");
+    }
+
+    function drawTables(ctx, r, x, y, w) {
+      const tw = (w - 18) / 2, rowH = 32;
+      const displayCardH = r.rowHeights && r.rowHeights.length ? r.rowHeights[0] : r.cardH;
+      const singleCardPx = `${r.cardW * r.moduleW}×${displayCardH * r.moduleH}`;
+      const singleCardText = `${singleCardPx}（${r.cardW}对开${displayCardH}高）`;
+      drawTable(ctx, x, y, tw, rowH, ["计算项目", "结果"], [
+        ["模组分辨率", `${r.moduleW}×${r.moduleH}`],
+        ["单卡分辨率", singleCardText],
+        ["模组接口", r.moduleInterface],
+        ["屏幕分辨率", `${fmt(r.screenW, 0)}×${fmt(r.screenH, 0)}`],
+        ["屏体尺寸", `${fmt(r.screenWM, 3)}m × ${fmt(r.screenHM, 3)}m`],
+        ["实际模组数量", `${fmt(r.modColsReal, 0)}宽×${fmt(r.modRowsReal, 0)}高 = ${fmt(r.modColsReal * r.modRowsReal, 0)}张`],
+        ["总像素", wan(r.totalPx)]
+      ]);
+      drawTable(ctx, x + tw + 18, y, tw, rowH, ["物料 / 设置", "数量"], [
+        [`${r.moduleName} 全彩模组 ${r.moduleW}×${r.moduleH} ${r.moduleInterface}`, `${fmt(r.modColsReal * r.modRowsReal, 0)}张`],
+        [`${r.cardName} 接收卡`, `${r.cardCount}张`],
+        [`${r.vp.name} 视频处理器`, "1台"],
+        ["超五类/六类网线", `${r.ports.length}根`]
+      ]);
+    }
+    function drawTable(ctx, x, y, w, rowH, heads, rows) {
+      rounded(ctx, x, y, w, rowH * (rows.length + 1), 5, "#fff", "#cfd8e3");
+      ctx.fillStyle = "#f3f4f6";
+      ctx.fillRect(x, y, w, rowH);
+      drawText(ctx, heads[0], x + 18, y + 7, 15, "#172033", true);
+      drawText(ctx, heads[1], x + w - 260, y + 7, 15, "#172033", true);
+      rows.forEach((row, i) => {
+        const yy = y + rowH * (i + 1);
+        ctx.strokeStyle = "#e5e7eb";
+        ctx.beginPath();
+        ctx.moveTo(x, yy);
+        ctx.lineTo(x + w, yy);
+        ctx.stroke();
+        drawText(ctx, row[0], x + 18, yy + 7, 15, "#172033");
+        drawText(ctx, row[1], x + w - 260, yy + 7, 15, "#059669", true);
+      });
+    }
+
+    function run() {
+      const result = calculate();
+      $("answer").textContent = result.answer;
+      draw(result);
+      window.lastResult = result;
+    }
+
+    ["moduleCols", "moduleRows"].forEach(id => $(id).addEventListener("input", () => { inputMode = "modules"; syncFromModules(); }));
+    ["screenW", "screenH"].forEach(id => $(id).addEventListener("input", () => { inputMode = "pixels"; syncFromPixels(); }));
+    ["screenWM", "screenHM"].forEach(id => $(id).addEventListener("input", () => { inputMode = "meters"; syncFromMeters(); }));
+    ["moduleW", "moduleH"].forEach(id => $(id).addEventListener("input", () => {
+      if (inputMode === "modules") syncFromModules();
+      if (inputMode === "pixels") syncFromPixels();
+      if (inputMode === "meters") syncFromMeters();
+      if (inputMode === "meters") syncFromMeters();
+    }));
+    $("moduleName").addEventListener("change", () => {
+      const p = modulePresets[$("moduleName").value];
+      if (p) {
+        $("moduleW").value = p.w;
+        $("moduleH").value = p.h;
+        $("moduleInterface").value = p.iface || "HUB75";
+        inputMode = "modules";
+        syncFromModules();
+      }
+      run();
+    });
+    $("moduleInterface").addEventListener("change", run);
+    $("calcBtn").addEventListener("click", run);
+    $("downloadBtn").addEventListener("click", () => {
+      const a = document.createElement("a");
+      a.href = $("drawing").toDataURL("image/jpeg", 0.95);
+      a.download = "LED配单图.jpg";
+      a.click();
+    });
+    const initPreset = modulePresets[$("moduleName").value];
+    if (initPreset) {
+      $("moduleInterface").value = initPreset.iface || "HUB75";
+    }
+    run();
+  </script>
+</body>
+</html>

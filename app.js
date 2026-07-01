@@ -1427,9 +1427,9 @@ async function boot() {
       const videoData = await videoResponse.json();
       videoResources = Array.isArray(videoData.videos) ? videoData.videos : [];
     }
-    $("#indexStatus").textContent = `${quickTable.length} 个产品速查`;
+    $("#indexStatus").textContent = "配单工具";
   } catch (error) {
-    $("#indexStatus").textContent = "速查表读取失败";
+    $("#indexStatus").textContent = "配单工具";
     quickTable = [];
   }
 
