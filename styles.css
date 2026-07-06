@@ -194,6 +194,15 @@ button {
   border-left-color: var(--amber);
 }
 
+.answer-card.firmware-answer {
+  border-left-color: #7b4bd6;
+}
+
+.answer-card.firmware-answer .answer-label {
+  color: #5630a8;
+  background: #f0eaff;
+}
+
 .answer-card.empty {
   border-left-color: var(--blue);
 }
@@ -246,6 +255,20 @@ button {
 
 .quick-table dd {
   margin: 0;
+  line-height: 1.7;
+}
+
+.firmware-table strong {
+  color: #5630a8;
+}
+
+.firmware-reminder {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #d8caea;
+  border-radius: 6px;
+  color: #45305f;
+  background: #fbf7ff;
   line-height: 1.7;
 }
 

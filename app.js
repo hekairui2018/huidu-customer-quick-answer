@@ -57,6 +57,1360 @@ const SCREEN_CONTROL_VIDEOS = [
   }
 ];
 
+const IC_FIRMWARE_SOURCE = "芯片选型-V4.4.pdf";
+const IC_FIRMWARE_ROWS = [
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16206/16126\n16016/16106/16306/16127",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16017S",
+    "setting": "SM16017S",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16159",
+    "setting": "SM16159",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16169S/16169SD/16169N",
+    "setting": "SM16169",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16207S",
+    "setting": "SM16207S",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16227S",
+    "setting": "SM16227S",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16237/16238",
+    "setting": "SM16237",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16259",
+    "setting": "SM16259",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16359",
+    "setting": "SM16359",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16369",
+    "setting": "SM16369",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16380SC/16380SF/16382",
+    "setting": "SM16380",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16388",
+    "setting": "SM16388",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16389SC",
+    "setting": "SM16389",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16389SF",
+    "setting": "SM16389SF",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16208S/SC/SJ/N/SF",
+    "setting": "SM16208",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16386SA",
+    "setting": "SM16380SH",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16169NH/NL",
+    "setting": "SM16169SH/SL",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16169SW",
+    "setting": "SM16169SW",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16169SH/SL",
+    "setting": "SM16169SH/SL",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16189S/SC",
+    "setting": "SM16189SC",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16395",
+    "setting": "SM16395",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16510",
+    "setting": "SM16510",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16510SC/NC",
+    "setting": "SM16510SC",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16386S",
+    "setting": "SM16386S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16386SH",
+    "setting": "SM16386SH",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16380SH/SA\nSM16380NH",
+    "setting": "SM16380SH/SA",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16380SW/NW",
+    "setting": "SM16380SW",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16269S",
+    "setting": "SM16269S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16269SW",
+    "setting": "SM16269SW",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SM系列芯片",
+    "chip": "SM16289S/N",
+    "setting": "SM16289",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP5125T/D/E/F",
+    "setting": "常规芯片或DP5125",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP5135",
+    "setting": "DP5135或DP5125",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3216",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3246",
+    "setting": "DP3246",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3264/5425/3265B",
+    "setting": "DP3264",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP5220",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3265S/3268S",
+    "setting": "DP3265S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3263",
+    "setting": "DP3263",
+    "firmware": "DP3263专用固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3256",
+    "setting": "DP3256",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3269",
+    "setting": "DP3269",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3269S",
+    "setting": "DP3269S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3265I/5525",
+    "setting": "DP3265I/5525",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3254/3357/3254S",
+    "setting": "DP3254/3357",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3252/3252S",
+    "setting": "DP3252",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3153/3153S",
+    "setting": "DP3153",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3356",
+    "setting": "DP3264",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3364",
+    "setting": "DP3364",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3364H",
+    "setting": "DP3368",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3364Q",
+    "setting": "DP3365S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3364S\nDP3364SA",
+    "setting": "DP3364S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3365S\nDP3365SA",
+    "setting": "DP3365S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3367S",
+    "setting": "DP3367S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3368",
+    "setting": "DP3368",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "DP系列芯片",
+    "chip": "DP3369S",
+    "setting": "DP3369S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2026/2025",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2028",
+    "setting": "ICN2028",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2037",
+    "setting": "ICN2037",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2038",
+    "setting": "ICN2038",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2038S",
+    "setting": "ICN2038S",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2045",
+    "setting": "ICN2045",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICND2046/2049",
+    "setting": "ICN2046",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICND2047",
+    "setting": "ICN2047",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2053/2058",
+    "setting": "ICN2053",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2153/2150S",
+    "setting": "ICN2153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICND2055\nICND2065",
+    "setting": "ICN2055\nICN2065",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICND2163",
+    "setting": "ICN2163",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2153P/2159",
+    "setting": "ICN2153P/2159",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2152",
+    "setting": "ICN2152",
+    "firmware": "ICN1063系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN1063/2263",
+    "setting": "ICN1063/2263",
+    "firmware": "ICN1063系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2595",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2153S",
+    "setting": "ICN2153S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN1068",
+    "setting": "ICN1068",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICND2065L",
+    "setting": "ICN1065S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2055S",
+    "setting": "ICN2055S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN2165",
+    "setting": "ICN2165",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN1065",
+    "setting": "ICN1065",
+    "firmware": "ICN1063系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN1065S",
+    "setting": "ICN1065S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN1065L",
+    "setting": "ICN1065L",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "ICN系列芯片",
+    "chip": "ICN1069",
+    "setting": "ICN1069",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9918S/9917",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9919",
+    "setting": "LS9919",
+    "firmware": "LS9919旧版固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9929S/9929N",
+    "setting": "LS9929",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9929C/9929CS",
+    "setting": "LS9929C",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9930",
+    "setting": "LS9930",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9935S",
+    "setting": "LS9935",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9935BS",
+    "setting": "LS9935B",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9935CS",
+    "setting": "LS9936",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9926",
+    "setting": "LS9926",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9928",
+    "setting": "LS9928",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9931/9931CS",
+    "setting": "LS9931",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9933",
+    "setting": "LS9933",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9936",
+    "setting": "LS9936",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "SC6618BS",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "SC6616S",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9937S",
+    "setting": "LS9937",
+    "firmware": "LS9937专用固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9937CS",
+    "setting": "LS9937或\nLS9937C",
+    "firmware": "LS9937专用固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9937DS",
+    "setting": "LS9937D",
+    "firmware": "LS9937专用固件"
+  },
+  {
+    "category": "LS系列芯片",
+    "chip": "LS9932",
+    "setting": "LS9932",
+    "firmware": "LS9932专用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "CFD435A/435C",
+    "setting": "CFD435A",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "CFD455A/455B",
+    "setting": "CFD455A",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "CFD135A/835A/135B",
+    "setting": "CFD135A",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "CS2017",
+    "setting": "CS2017",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "CS2033",
+    "setting": "CS2033",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "CFD455C/455HA/455DA",
+    "setting": "CFD455C",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "C8455QP",
+    "setting": "CFD455C",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "C8135QN/8135QP",
+    "setting": "CFD135A",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "C8325",
+    "setting": "C8325",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "C8365",
+    "setting": "C8365",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "C8385",
+    "setting": "C8385",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "CFD325A/325D",
+    "setting": "CFD325A",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "CFD555A",
+    "setting": "CFD555A",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "CFD555B",
+    "setting": "CFD555B",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "CFD855A",
+    "setting": "CFD855A",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "C8335B/CFD335B",
+    "setting": "C8335",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "C8465QP",
+    "setting": "C8465",
+    "firmware": "C8465专用固件"
+  },
+  {
+    "category": "C8/CFD系列芯片",
+    "chip": "C8485",
+    "setting": "C8485",
+    "firmware": "C8465专用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6124",
+    "setting": "FM6124",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6126",
+    "setting": "FM6126",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6127",
+    "setting": "FM6127",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6153",
+    "setting": "FM6153或MBI5153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6253",
+    "setting": "FM6253或MBI5153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6353/6353E/6353Q",
+    "setting": "FM6353或ICN2053",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6356",
+    "setting": "ICN2153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6565E",
+    "setting": "FM6565E",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6565A/FM6565C/6655A/6565D",
+    "setting": "FM6565或ICN2065",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6363",
+    "setting": "FM6363或ICN2163",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6047",
+    "setting": "FM6047",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6182",
+    "setting": "FM6182",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6128",
+    "setting": "FM6128",
+    "firmware": "FM6128专用固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6373",
+    "setting": "FM6373或FM6565",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6373C",
+    "setting": "FM6373C",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6373D",
+    "setting": "FM6373D",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6565AH",
+    "setting": "FM6565",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6565AL",
+    "setting": "FM6565",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "FM系列芯片",
+    "chip": "FM6565S",
+    "setting": "FM6565S",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "SUM系列芯片",
+    "chip": "SUM2016/SUM20167",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SUM系列芯片",
+    "chip": "SUM2030",
+    "setting": "SUM2030",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SUM系列芯片",
+    "chip": "SUM2130",
+    "setting": "SUM2130",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SUM系列芯片",
+    "chip": "SUM2017",
+    "setting": "SUM2017",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SUM系列芯片",
+    "chip": "SUM2017T",
+    "setting": "SUM2017T",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SUM系列芯片",
+    "chip": "SUM2021",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SUM系列芯片",
+    "chip": "SUM2032",
+    "setting": "SUM2032",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SUM系列芯片",
+    "chip": "SUM2033",
+    "setting": "SUM2033",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SUM系列芯片",
+    "chip": "SUM2131",
+    "setting": "SUM2131",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "SUM系列芯片",
+    "chip": "SUM2028",
+    "setting": "SUM2028",
+    "firmware": "SUM2028专用固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6126-C",
+    "setting": "ICN2037",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6128",
+    "setting": "SM16237DS",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6128A",
+    "setting": "ICND2046",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6168B",
+    "setting": "SM16169S",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6168C",
+    "setting": "ICN2153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6168D",
+    "setting": "ICND2163",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6168E",
+    "setting": "ICND2065",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6168A",
+    "setting": "LS9929",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6188",
+    "setting": "LS9929",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6188PB",
+    "setting": "LS9935",
+    "firmware": "LS99系列固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6126",
+    "setting": "FM6126",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6168",
+    "setting": "MBI5153或LYD6168",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6268",
+    "setting": "MBI5153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "LYD系列芯片",
+    "chip": "LYD6188PC",
+    "setting": "ICND2065",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5153",
+    "setting": "MBI5153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5041",
+    "setting": "MBI5041",
+    "firmware": "MBI5041专用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5268",
+    "setting": "MBI5268",
+    "firmware": "MBI5268专用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5124",
+    "setting": "MBI5124",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5120/5020",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5166",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5024",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5264",
+    "setting": "MBI5264",
+    "firmware": "MBI5264专用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5066",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5253A",
+    "setting": "MBI5253A",
+    "firmware": "MBI5253A专用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5051B",
+    "setting": "MBI5051B",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5023",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "MBI系列芯片",
+    "chip": "MBI5035B",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "CNS7153",
+    "setting": "CNS7153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "CNS7253",
+    "setting": "CNS7253",
+    "firmware": "CNS7253专用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "CNS7263",
+    "setting": "CNS7263",
+    "firmware": "CNS7263专用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "HX8864",
+    "setting": "HX8864",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "HX8863/8865",
+    "setting": "HX8863/8865",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "HX8055",
+    "setting": "ICN2153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "CT9065",
+    "setting": "CT9065",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "A5055",
+    "setting": "ICN2153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "RUL6024",
+    "setting": "ICN2038S",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "RUL6022/6020",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "RUL6053",
+    "setting": "MBI5153",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "MY9868",
+    "setting": "MY9868",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "JXI5123",
+    "setting": "MBI5124",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "JXI5020",
+    "setting": "常规芯片",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "RT5965",
+    "setting": "RT5965",
+    "firmware": "通用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "YY6018B/AXS6018",
+    "setting": "AXS6018",
+    "firmware": "AXS6018专用固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "Rental518",
+    "setting": "DP3265",
+    "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "TBS3266A",
+    "setting": "TBS3266A",
+    "firmware": "TBS3266A/TBS5266A固件"
+  },
+  {
+    "category": "其它系列芯片",
+    "chip": "TBS5266A",
+    "setting": "TBS5266A",
+    "firmware": "TBS3266A/TBS5266A固件"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "TC7258/7262A/HX6016",
+    "setting": "138",
+    "firmware": "译码芯片设置：138"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "TC7558EN",
+    "setting": "TC7558或5958",
+    "firmware": "译码芯片设置：TC7558或5958"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "TC7559B",
+    "setting": "TC7559B或2018",
+    "firmware": "译码芯片设置：TC7559B或2018"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "RT5958/D5958SSP/RT5959/5960",
+    "setting": "5958",
+    "firmware": "译码芯片设置：5958"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "RUL5158/5960",
+    "setting": "5958",
+    "firmware": "译码芯片设置：5958"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "RUL5258/ICN2018S/ICN3018/AXS9501S",
+    "setting": "ICN2018",
+    "firmware": "译码芯片设置：ICN2018"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "RUL5358",
+    "setting": "SM5266",
+    "firmware": "译码芯片设置：SM5266"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "HX6058/6158",
+    "setting": "5958",
+    "firmware": "译码芯片设置：5958"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "HX6157",
+    "setting": "HX6157",
+    "firmware": "译码芯片设置：HX6157"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "HX6158H",
+    "setting": "HX6158H",
+    "firmware": "译码芯片设置：HX6158H"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "HX6258",
+    "setting": "HX6258",
+    "firmware": "译码芯片设置：HX6258"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "DP32019",
+    "setting": "DP32019",
+    "firmware": "译码芯片设置：DP32019"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "DP32020",
+    "setting": "DP32020",
+    "firmware": "译码芯片设置：DP32020"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "DP32029",
+    "setting": "DP32029",
+    "firmware": "译码芯片设置：DP32029"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "DP32030/32030B-B",
+    "setting": "DP32030",
+    "firmware": "译码芯片设置：DP32030"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "DP32129",
+    "setting": "DP32129/5958",
+    "firmware": "译码芯片设置：DP32129/5958"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "DP7268/VB5628",
+    "setting": "138",
+    "firmware": "译码芯片设置：138"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "DP7298B",
+    "setting": "5958或DP32020",
+    "firmware": "译码芯片设置：5958或DP32020"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "ICN2012/1012",
+    "setting": "ICN2012或138",
+    "firmware": "译码芯片设置：ICN2012或138"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "ICN2013",
+    "setting": "ICN2013或138",
+    "firmware": "译码芯片设置：ICN2013或138"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "ICN2018/1018/2019/1028",
+    "setting": "ICN2018",
+    "firmware": "译码芯片设置：ICN2018"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "ICND2015/2016/2017",
+    "setting": "138",
+    "firmware": "译码芯片设置：138"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "SM5166P/5188",
+    "setting": "SM5166",
+    "firmware": "译码芯片设置：SM5166"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "SM5368/5388/5369/5378",
+    "setting": "SM5368/5388/5369",
+    "firmware": "译码芯片设置：SM5368/5388/5369"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "SM5366PH",
+    "setting": "SM5366",
+    "firmware": "译码芯片设置：SM5366"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "SM74HC595",
+    "setting": "595",
+    "firmware": "译码芯片设置：595"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "SM5266PH",
+    "setting": "SM5266",
+    "firmware": "译码芯片设置：SM5266"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "MW5566P/TC6960",
+    "setting": "5958或ICN2018",
+    "firmware": "译码芯片设置：5958或ICN2018"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "MW4958/MW4953/SM74HC138D",
+    "setting": "138",
+    "firmware": "译码芯片设置：138"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "VB5658",
+    "setting": "VB5658",
+    "firmware": "译码芯片设置：VB5658"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "C82019/C82318SP1/C82058S",
+    "setting": "ICN2018",
+    "firmware": "译码芯片设置：ICN2018"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "LS9737CS1",
+    "setting": "9737_1",
+    "firmware": "译码芯片设置：9737_1"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "CNS3018DP",
+    "setting": "CNS3018",
+    "firmware": "译码芯片设置：CNS3018"
+  },
+  {
+    "category": "译码芯片",
+    "chip": "RUC7258/RUL7262/RUL7260",
+    "setting": "138",
+    "firmware": "译码芯片设置：138"
+  }
+];
+
 let quickTable = [];
 let officialLinks = {};
 let operationResources = [];
@@ -762,6 +2116,107 @@ function searchProducts(query) {
     .slice(0, 8);
 }
 
+function normalizeIcKey(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/芯片|固件|升级|用|什么|哪个|哪一个|对应|系列|firmware/g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function icTerms(value) {
+  const text = String(value || "");
+  const terms = new Set();
+  const add = (item) => {
+    const key = normalizeIcKey(item);
+    if (key.length >= 2) terms.add(key);
+  };
+  add(text);
+  text.split(/[\s/、,，或和]+/).forEach(add);
+  (text.match(/[a-z]{0,5}\d{2,6}[a-z]?/gi) || []).forEach((item) => {
+    add(item);
+    const digits = item.match(/\d{2,6}/g) || [];
+    digits.forEach(add);
+  });
+  return [...terms];
+}
+
+function icQueryKeys(query) {
+  return icTerms(query).filter((item) => item.length >= 2);
+}
+
+function scoreIcFirmware(row, queryKeys) {
+  const chipTerms = icTerms(row.chip);
+  const settingTerms = icTerms(row.setting);
+  const firmwareTerms = icTerms(row.firmware);
+  const categoryTerms = icTerms(row.category);
+  let score = 0;
+  for (const key of queryKeys) {
+    if (chipTerms.includes(key)) score = Math.max(score, 1000);
+    if (settingTerms.includes(key)) score = Math.max(score, 850);
+    if (firmwareTerms.includes(key)) score = Math.max(score, 650);
+    if (categoryTerms.includes(key)) score = Math.max(score, 300);
+  }
+  return score;
+}
+
+function searchIcFirmware(query) {
+  const keys = icQueryKeys(query);
+  if (!keys.length) return [];
+  const exactKey = normalizeIcKey(query);
+  return IC_FIRMWARE_ROWS
+    .map((row) => {
+      const chipTerms = icTerms(row.chip);
+      const settingTerms = icTerms(row.setting);
+      const exactScore = exactKey && chipTerms.includes(exactKey) ? 1600 : exactKey && settingTerms.includes(exactKey) ? 1400 : 0;
+      return { ...row, score: Math.max(exactScore, scoreIcFirmware(row, keys)), hit: keys[0] };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score || a.category.localeCompare(b.category, "zh-Hans-CN") || a.chip.localeCompare(b.chip, "zh-Hans-CN"))
+    .slice(0, 30);
+}
+
+function renderIcFirmwareAnswer(query, hits) {
+  const primary = hits[0];
+  const firmwareLabel = primary.firmware || "查看智能设置选择";
+  const title = hits.length > 1 && primary.score < 1000
+    ? `${escapeHtml(query)} 相关固件：${escapeHtml(firmwareLabel)}`
+    : `${escapeHtml(primary.chip.replace(/\n/g, " / "))} 对应：${escapeHtml(firmwareLabel)}`;
+  $("#answerPanel").innerHTML = `
+    <article class="answer-card firmware-answer">
+      <span class="answer-label">IC固件速查</span>
+      <h2>${title}</h2>
+      <dl class="quick-table firmware-table">
+        <div>
+          <dt>芯片型号</dt>
+          <dd>${escapeHtml(primary.chip.replace(/\n/g, " / "))}</dd>
+        </div>
+        <div>
+          <dt>智能设置</dt>
+          <dd>${escapeHtml(primary.setting.replace(/\n/g, " / ") || "按资料表选择")}</dd>
+        </div>
+        <div>
+          <dt>固件/设置</dt>
+          <dd><strong>${escapeHtml(firmwareLabel)}</strong></dd>
+        </div>
+      </dl>
+      <p class="firmware-reminder">已接入《${escapeHtml(IC_FIRMWARE_SOURCE)}》整表。现场升级前再核对模组芯片丝印、接收卡型号和项目备份，避免同名近似芯片拿错固件。</p>
+    </article>
+  `;
+
+  $("#matchSummary").textContent = `${hits.length} 条芯片/固件匹配`;
+  $("#sourceList").innerHTML = hits.map((hit, index) => `
+    <article class="source-card">
+      <div class="source-head">
+        <strong>${index + 1}. ${escapeHtml(hit.chip.replace(/\n/g, " / "))}</strong>
+        <span>${escapeHtml(hit.category)} · 匹配 ${Math.round(hit.score)}</span>
+      </div>
+      <p><strong>智能设置选择：</strong>${escapeHtml(hit.setting.replace(/\n/g, " / ") || "按资料表选择")}</p>
+      <p><strong>固件/设置：</strong>${escapeHtml(hit.firmware)}</p>
+      <p class="local-note">来源：${escapeHtml(IC_FIRMWARE_SOURCE)}。输入芯片数字、完整芯片名或固件系列名都可以反查。</p>
+    </article>
+  `).join("");
+}
+
 function renderQuickRows(rows) {
   if (!rows.length) {
     return `
@@ -1369,6 +2824,12 @@ function render() {
   });
   if (!query) {
     renderDefault();
+    return;
+  }
+
+  const firmwareMatches = searchIcFirmware(query);
+  if (firmwareMatches.length) {
+    renderIcFirmwareAnswer(query, firmwareMatches);
     return;
   }
 
