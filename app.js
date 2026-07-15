@@ -58,6 +58,93 @@ const SCREEN_CONTROL_VIDEOS = [
 ];
 
 const IC_FIRMWARE_SOURCE = "芯片选型-V4.4.pdf";
+const RECEIVER_CARD_SUFFIX_NOTE = "接收卡常见尾缀：63 / 65 / 97 / 99";
+const ASYNC_CARD_SUFFIX_NOTE = "异步卡固件尾缀：70 / 71 / 73 / 79";
+const ASYNC_SUFFIX_MAPPING_NOTE = "已确认对应：63→70（通用/PWM），65→71（65系列），99→79（99系列）；97暂未在现有资料里找到明确对应，先按现场丝印/版本记录核对。";
+
+function normalizeHintText(value) {
+  return String(value || "").toLowerCase().replace(/[\s\/、,，()（）\-_.：:]+/g, "");
+}
+
+function firmwareTypeFromRow(row) {
+  const text = normalizeHintText(`${row.firmware} ${row.category} ${row.chip}`);
+  if (text.includes("通用固件") || text.includes("通用")) return "通用固件";
+  if (text.includes("65系列")) return "65系列固件";
+  if (text.includes("63系列")) return "63系列固件";
+  if (text.includes("99系列")) return "99系列固件";
+  if (text.includes("2065")) return "65系列固件";
+  if (text.includes("6363") || text.includes("fm6363")) return "通用固件";
+  if (text.includes("1063")) return "63系列固件";
+  if (text.includes("9931") || text.includes("ls99") || text.includes("99")) return "99系列固件";
+  return "【待补充】";
+}
+
+function deriveFirmwareMap(row) {
+  const firmwareType = firmwareTypeFromRow(row);
+  if (firmwareType === "通用固件") {
+    return {
+      firmwareType,
+      receiverSuffix: "01",
+      asyncSuffixA: "70",
+      asyncSuffixB: "00",
+      note: "PWM/常规芯片"
+    };
+  }
+  if (firmwareType === "63系列固件") {
+    return {
+      firmwareType,
+      receiverSuffix: "63",
+      asyncSuffixA: "73",
+      asyncSuffixB: "63",
+      note: "63系列芯片"
+    };
+  }
+  if (firmwareType === "65系列固件") {
+    return {
+      firmwareType,
+      receiverSuffix: "65",
+      asyncSuffixA: "71",
+      asyncSuffixB: "65",
+      note: "65系列芯片"
+    };
+  }
+  if (firmwareType === "99系列固件") {
+    return {
+      firmwareType,
+      receiverSuffix: "99",
+      asyncSuffixA: "79",
+      asyncSuffixB: "99",
+      note: "99系列芯片"
+    };
+  }
+  return {
+    firmwareType,
+    receiverSuffix: "【待补充】",
+    asyncSuffixA: "【待补充】",
+    asyncSuffixB: "【待补充】",
+    note: "【待补充】"
+  };
+}
+
+function firmwareSuffixNote(mapping) {
+  const receiverSuffix = mapping.receiverSuffix || "【待补充】";
+  const asyncA = mapping.asyncSuffixA || "【待补充】";
+  const asyncB = mapping.asyncSuffixB || "【待补充】";
+  if (mapping.firmwareType === "通用固件") {
+    return `接收卡尾缀：01；异步卡C08L/C16/C36/D16/D36：70；异步卡C16H/C16L：00`;
+  }
+  if (mapping.firmwareType === "63系列固件") {
+    return `接收卡尾缀：63；异步卡C08L/C16/C36/D16/D36：73；异步卡C16H/C16L：63`;
+  }
+  if (mapping.firmwareType === "65系列固件") {
+    return `接收卡尾缀：65；异步卡C08L/C16/C36/D16/D36：71；异步卡C16H/C16L：65`;
+  }
+  if (mapping.firmwareType === "99系列固件") {
+    return `接收卡尾缀：99；异步卡C08L/C16/C36/D16/D36：79；异步卡C16H/C16L：99`;
+  }
+  return `接收卡尾缀：${receiverSuffix}；异步卡C08L/C16/C36/D16/D36：${asyncA}；异步卡C16H/C16L：${asyncB}`;
+}
+
 const IC_FIRMWARE_ROWS = [
   {
     "category": "SM系列芯片",
@@ -208,6 +295,12 @@ const IC_FIRMWARE_ROWS = [
     "chip": "SM16386SH",
     "setting": "SM16386SH",
     "firmware": "ICN2065系列固件"
+  },
+  {
+    "category": "异步卡版本说明",
+    "chip": "C/D系列异步发送卡",
+    "setting": "接收卡尾缀 63 / 65 / 97 / 99",
+    "firmware": `${ASYNC_CARD_SUFFIX_NOTE}；${ASYNC_SUFFIX_MAPPING_NOTE}`
   },
   {
     "category": "SM系列芯片",
@@ -1668,6 +1761,12 @@ function productName(item) {
   return item.displayName || item.product;
 }
 
+function isFalseProductModel(item) {
+  const name = normalize(productName(item));
+  if (name === "vp1") return true;
+  return false;
+}
+
 function isSeriesPrefixQuery(query) {
   return /^[a-z]$/i.test(normalize(query));
 }
@@ -2104,6 +2203,7 @@ function searchProducts(query) {
   const numericFragment = isNumericFragmentQuery(query);
   const useSelectionOrder = numericFragment && normalize(query).length >= 3;
   return quickTable
+    .filter((item) => !isFalseProductModel(item))
     .map((item) => ({ item, score: productScore(item, query) }))
     .filter((entry) => entry.score > 0)
     .sort((a, b) =>
@@ -2176,9 +2276,19 @@ function searchIcFirmware(query) {
     .slice(0, 30);
 }
 
+function asyncCardSuffixDetails() {
+  return [
+    RECEIVER_CARD_SUFFIX_NOTE,
+    ASYNC_CARD_SUFFIX_NOTE,
+    ASYNC_SUFFIX_MAPPING_NOTE
+  ];
+}
+
 function renderIcFirmwareAnswer(query, hits) {
   const primary = hits[0];
   const firmwareLabel = primary.firmware || "查看智能设置选择";
+  const mapping = deriveFirmwareMap(primary);
+  const suffixNote = firmwareSuffixNote(mapping);
   const title = hits.length > 1 && primary.score < 1000
     ? `${escapeHtml(query)} 相关固件：${escapeHtml(firmwareLabel)}`
     : `${escapeHtml(primary.chip.replace(/\n/g, " / "))} 对应：${escapeHtml(firmwareLabel)}`;
@@ -2196,26 +2306,31 @@ function renderIcFirmwareAnswer(query, hits) {
           <dd>${escapeHtml(primary.setting.replace(/\n/g, " / ") || "按资料表选择")}</dd>
         </div>
         <div>
-          <dt>固件/设置</dt>
-          <dd><strong>${escapeHtml(firmwareLabel)}</strong></dd>
+          <dt>对应固件</dt>
+          <dd><strong>${escapeHtml(firmwareLabel)}</strong>（${escapeHtml(suffixNote)}）</dd>
         </div>
       </dl>
+      <p class="firmware-reminder">备注：${escapeHtml(mapping.note || "【待补充】")}</p>
       <p class="firmware-reminder">已接入《${escapeHtml(IC_FIRMWARE_SOURCE)}》整表。现场升级前再核对模组芯片丝印、接收卡型号和项目备份，避免同名近似芯片拿错固件。</p>
     </article>
   `;
 
   $("#matchSummary").textContent = `${hits.length} 条芯片/固件匹配`;
-  $("#sourceList").innerHTML = hits.map((hit, index) => `
+  $("#sourceList").innerHTML = hits.map((hit, index) => {
+    const mapping = deriveFirmwareMap(hit);
+    return `
     <article class="source-card">
       <div class="source-head">
         <strong>${index + 1}. ${escapeHtml(hit.chip.replace(/\n/g, " / "))}</strong>
         <span>${escapeHtml(hit.category)} · 匹配 ${Math.round(hit.score)}</span>
       </div>
-      <p><strong>智能设置选择：</strong>${escapeHtml(hit.setting.replace(/\n/g, " / ") || "按资料表选择")}</p>
-      <p><strong>固件/设置：</strong>${escapeHtml(hit.firmware)}</p>
+      <p><strong>智能设置：</strong>${escapeHtml(hit.setting.replace(/\n/g, " / ") || "按资料表选择")}</p>
+      <p><strong>固件：</strong>${escapeHtml(hit.firmware)}（${escapeHtml(suffixNote)}）</p>
+      <p class="local-note">备注：${escapeHtml(mapping.note || "【待补充】")}</p>
       <p class="local-note">来源：${escapeHtml(IC_FIRMWARE_SOURCE)}。输入芯片数字、完整芯片名或固件系列名都可以反查。</p>
     </article>
-  `).join("");
+    `;
+  }).join("");
 }
 
 function renderQuickRows(rows) {
@@ -2872,7 +2987,7 @@ async function boot() {
       fetch("video-resources.json", { cache: "no-store" })
     ]);
     const data = await response.json();
-    quickTable = Array.isArray(data.products) ? data.products : [];
+    quickTable = Array.isArray(data.products) ? data.products.filter((item) => !isFalseProductModel(item)) : [];
     if (officialResponse.ok) {
       const officialData = await officialResponse.json();
       officialLinks = officialData.products || {};
