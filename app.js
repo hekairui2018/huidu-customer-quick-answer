@@ -2240,7 +2240,7 @@ function icTerms(value) {
     if (parsed) {
       const bareWithSuffix = `${parsed[2]}${parsed[3] || ""}`;
       add(bareWithSuffix);
-      if (!parsed[3]) add(parsed[2]);
+      add(parsed[2]);
     }
   });
   return [...terms];
@@ -3037,4 +3037,5 @@ async function boot() {
 }
 
 boot();
+
 
