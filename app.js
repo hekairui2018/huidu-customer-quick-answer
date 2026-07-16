@@ -2233,10 +2233,15 @@ function icTerms(value) {
   };
   add(text);
   text.split(/[\s/、,，或和]+/).forEach(add);
-  (text.match(/[a-z]{0,5}\d{2,6}[a-z]?/gi) || []).forEach((item) => {
+  (text.match(/[a-z]{0,5}\d{2,6}[a-z]{0,3}/gi) || []).forEach((item) => {
     add(item);
-    const digits = item.match(/\d{2,6}/g) || [];
-    digits.forEach(add);
+    const part = normalizeIcKey(item);
+    const parsed = part.match(/^([a-z]*)(\d{2,6})([a-z]{0,3})$/i);
+    if (parsed) {
+      const bareWithSuffix = `${parsed[2]}${parsed[3] || ""}`;
+      add(bareWithSuffix);
+      if (!parsed[3]) add(parsed[2]);
+    }
   });
   return [...terms];
 }
@@ -2252,8 +2257,9 @@ function scoreIcFirmware(row, queryKeys) {
   const categoryTerms = icTerms(row.category);
   let score = 0;
   for (const key of queryKeys) {
-    if (chipTerms.includes(key)) score = Math.max(score, 1000);
-    if (settingTerms.includes(key)) score = Math.max(score, 850);
+    const hasSuffix = /\d+[a-z]+$/i.test(key);
+    if (chipTerms.includes(key)) score = Math.max(score, hasSuffix ? 1550 : 1000);
+    if (settingTerms.includes(key)) score = Math.max(score, hasSuffix ? 1450 : 850);
     if (firmwareTerms.includes(key)) score = Math.max(score, 650);
     if (categoryTerms.includes(key)) score = Math.max(score, 300);
   }
@@ -2325,7 +2331,7 @@ function renderIcFirmwareAnswer(query, hits) {
         <span>${escapeHtml(hit.category)} · 匹配 ${Math.round(hit.score)}</span>
       </div>
       <p><strong>智能设置：</strong>${escapeHtml(hit.setting.replace(/\n/g, " / ") || "按资料表选择")}</p>
-      <p><strong>固件：</strong>${escapeHtml(hit.firmware)}（${escapeHtml(suffixNote)}）</p>
+      <p><strong>固件：</strong>${escapeHtml(hit.firmware)}（${escapeHtml(firmwareSuffixNote(mapping))}）</p>
       <p class="local-note">备注：${escapeHtml(mapping.note || "【待补充】")}</p>
       <p class="local-note">来源：${escapeHtml(IC_FIRMWARE_SOURCE)}。输入芯片数字、完整芯片名或固件系列名都可以反查。</p>
     </article>
@@ -3031,3 +3037,4 @@ async function boot() {
 }
 
 boot();
+
