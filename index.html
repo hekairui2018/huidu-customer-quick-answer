@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>灰度客户速查</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260723-10" />
+    <meta name="xiaohuiji-video-base" content="https://github.com/hekairui2018/huidu-customer-quick-answer/releases/download/videos" />
   </head>
   <body>
     <header class="topbar">
@@ -12,8 +13,9 @@
         <span>H</span>
         <strong>灰度客户速查</strong>
       </a>
+      <button id="aiAssistantButton" class="ai-entry" type="button">🤖 小灰机</button>
       <div class="top-status">
-        <a id="indexStatus" class="top-tool-link" href="order-tool.html">配单工具</a>
+        <a id="indexStatus" class="top-tool-link" href="LED配单图工具.html" target="_blank" rel="noreferrer">配单工具</a>
       </div>
     </header>
 
@@ -45,6 +47,43 @@
       </section>
     </main>
 
-    <script src="app.js"></script>
+
+    <div id="aiChatShell" class="ai-chat-shell" aria-hidden="true">
+      <section class="ai-chat-window" role="dialog" aria-modal="false" aria-labelledby="aiChatTitle">
+        <header class="ai-chat-head">
+          <div>
+            <p>统一只读本地知识库</p>
+            <h2 id="aiChatTitle">小灰机</h2>
+          </div>
+          <div class="ai-chat-actions">
+            <button id="aiKnowledgeToggle" class="ai-clear-button" type="button" hidden>知识系统</button>
+            <button id="aiChatExport" class="ai-clear-button" type="button" hidden>下载记录</button>
+            <button id="aiChatHistoryToggle" class="ai-clear-button" type="button" hidden aria-expanded="false">&#x5c55;&#x5f00;&#x5386;&#x53f2;</button>
+            <button id="aiChatClear" class="ai-clear-button" type="button">清空历史</button>
+            <button id="aiChatClose" class="ai-icon-button" type="button" aria-label="关闭小灰机">×</button>
+          </div>
+        </header>
+        <aside class="ai-recent-history" aria-label="最近提问"><div class="ai-recent-title">&#x5386;&#x53f2;</div><div id="aiRecentHistory" class="ai-recent-list"></div></aside>
+        <div id="aiChatMessages" class="ai-chat-messages" aria-live="polite">
+          <div class="ai-message assistant">
+            <strong>小灰机</strong>
+            <p>你好，我只按当前站点公开的本地权威资料回答。</p>
+          </div>
+        </div>
+        <section id="aiKnowledgePanel" class="ai-knowledge-panel" hidden aria-label="知识系统管理"><div class="ai-knowledge-toolbar"><strong>本地知识系统</strong><button id="aiKnowledgeRefresh" class="ai-clear-button" type="button">刷新</button></div><div id="aiKnowledgeStats" class="ai-knowledge-stats"></div><div class="ai-knowledge-toolbar"><strong>最近问答</strong><button id="aiKnowledgeScan" class="ai-clear-button" type="button">扫描资料</button></div><div id="aiKnowledgeRecords" class="ai-knowledge-records"></div><p id="aiKnowledgeStatus" class="ai-knowledge-status"></p></section>
+        <div id="aiChatHint" class="ai-chat-hint" role="status"><span>资料由本地确定性检索生成，不调用 AI 成文；固件与内部售后资料不在本站公开。</span><button id="aiChatHintClose" class="ai-chat-hint-close" type="button" aria-label="关闭提示">×</button></div>
+        <form id="aiChatForm" class="ai-chat-form">
+          <div id="aiAttachmentList" class="ai-attachment-list" hidden></div>
+          <div class="ai-composer">
+            <textarea id="aiChatInput" rows="2" placeholder="输入完整型号或资料关键词..."></textarea>
+            <div class="ai-composer-toolbar">
+              <button id="aiChatSend" class="ai-send-button" type="submit" title="发送" aria-label="发送">↑</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script type="module" src="app.js?v=20260828-1"></script>
   </body>
 </html>
+

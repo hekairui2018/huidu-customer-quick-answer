@@ -1,14 +1,3 @@
-# 灰度客户速查
+# 小灰机快速筛查站
 
-公开客户资料速查页，适合 GitHub Pages 托管。
-
-## 发布结构
-
-- 网页和 JSON 数据：GitHub Pages
-- MP4 指导视频：GitHub Release `videos`
-
-## 注意
-
-- 公开版只展示资料摘要和官网公开链接。
-- 不上传本地微盘原始文档。
-- 不上传客户案例或内部资料路径。
+该目录由统一 canonical knowledge artifact 离线派生。浏览器只加载 site_quick 只读资料；不调用 AI、WeCom 或售后案例库。配单入口保留原页面能力。
